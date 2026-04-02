@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rae Carmel — Creator Portfolio</title>
+<link rel="icon" type="image/png" href="logo.png">
+<title>Rae Carmel's Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #FAF6F0; --cream-dark: #F0EAE0;
+    --cream: #FAF6F0; --cream-dark: #dfd7ca;
     --lavender: #C9BFE0; --lavender-light: #E4DEF2; --lavender-deep: #9E8EC4;
     --rose: #D9A8B0; --rose-light: #EDD5D9; --rose-deep: #B97A88;
     --ink: #2C2635; --ink-light: #6B6277;
@@ -78,7 +79,7 @@
   .glance-section .section-title em { color:var(--rose); }
   .glance-section .section-line { background:linear-gradient(to right,var(--rose),transparent); opacity:.4; }
   .glance-intro { font-family:'Cormorant Garamond',serif; font-size:1.08rem; font-style:italic; color:rgba(250,246,240,.42); margin-bottom:48px; max-width:480px; }
-  .glance-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(255,255,255,.06); border-radius:24px; overflow:hidden; border:1px solid rgba(255,255,255,.08); }
+  .glance-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:2px; background:rgba(255,255,255,.06); border-radius:24px; overflow:hidden; border:1px solid rgba(255,255,255,.08); }
   .glance-item { padding:38px 30px; background:rgba(255,255,255,.03); transition:background .3s; position:relative; }
   .glance-item:hover { background:rgba(255,255,255,.07); }
   .glance-item::after { content:attr(data-label); position:absolute; top:15px; right:17px; font-size:.56rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(250,246,240,.18); }
@@ -151,15 +152,15 @@
   .platform-logo svg { width:13px; height:13px; }
   .platform-name { font-size:.66rem; letter-spacing:.13em; text-transform:uppercase; color:var(--ink); font-weight:500; }
   .platform-mini-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
-  .mini-stat-num { font-family:'Bebas Neue',sans-serif; font-size:1.42rem; color:var(--ink); line-height:1; letter-spacing:.03em; }
+  .mini-stat-num { font-family:'Roboto',sans-serif; font-size:1.42rem; color:var(--ink); line-height:1; letter-spacing: -0.08em; }
   .mini-stat-label { font-size:.58rem; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-light); margin-top:1px; }
   .video-embed-area { margin-top:2px; }
   .video-embed-label { font-size:.61rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-light); margin-bottom:8px; }
-  .video-slots { display:grid; grid-template-columns:1fr 1fr; gap:7px; }
+  .video-slots { display:grid; grid-template-columns:1fr; gap:10px; }
   .video-slot { aspect-ratio:16/9; border-radius:10px; background:var(--cream-dark); border:1.5px dashed rgba(201,191,224,.55); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; color:var(--ink-light); font-size:.61rem; letter-spacing:.09em; text-transform:uppercase; text-align:center; overflow:hidden; position:relative; transition:border-color .3s; }
   .video-slot:hover { border-color:var(--lavender-deep); }
   .video-slot svg { width:20px; height:20px; opacity:.28; }
-  .video-slot iframe { position:absolute; inset:0; width:100%; height:100%; border:none; border-radius:10px; }
+  .video-slot iframe { position:absolute; top: 0; left: 0; width:100%; height:100%; border:none; border-radius:10px; }
 
   /* WORKS */
   .works { background:var(--white); }
@@ -170,12 +171,11 @@
   .work-card:hover { transform:translateY(-5px); box-shadow:0 20px 54px rgba(0,0,0,.07); }
   .work-card.lavender { background:linear-gradient(135deg,var(--lavender-light),rgba(228,222,242,.4)); border:1px solid rgba(201,191,224,.52); }
   .work-card.rose { background:linear-gradient(135deg,var(--rose-light),rgba(237,213,217,.4)); border:1px solid rgba(217,168,176,.44); }
-  .work-card.cream { background:linear-gradient(135deg,var(--white),var(--cream-dark)); border:1px solid var(--cream-dark); }
-  .work-card.gold { background:linear-gradient(135deg,rgba(201,169,110,.12),rgba(201,169,110,.04)); border:1px solid rgba(201,169,110,.26); }
+  .work-card.cream { background:linear-gradient(135deg,var(--white),#F0EAE0); border:1px solid var(--cream-dark); }
   .work-card.lilac { background:linear-gradient(135deg,rgba(192,172,220,.18),rgba(201,191,224,.07)); border:1px solid rgba(158,142,196,.3); }
   .work-card.placeholder { background:var(--cream); border:1.5px dashed var(--cream-dark); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; min-height:200px; }
   .work-year { font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-light); margin-bottom:9px; display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
-  .award-badge { display:inline-flex; align-items:center; gap:4px; font-size:.58rem; letter-spacing:.09em; padding:3px 9px; border-radius:9px; background:rgba(201,169,110,.17); color:var(--gold); border:1px solid rgba(201,169,110,.3); }
+  .award-badge { display:inline-flex; align-items:center; gap:4px; font-size:.58rem; letter-spacing:.09em; padding:3px 9px; border-radius:9px; background:rgba(253, 207, 123, 0.448); color: rgb(134, 122, 99); border:1px solid rgba(201,169,110,.3); }
   .work-title { font-family:'Cormorant Garamond',serif; font-size:1.38rem; color:var(--ink); margin-bottom:7px; line-height:1.2; }
   .work-type { font-size:.66rem; letter-spacing:.13em; text-transform:uppercase; color:var(--rose-deep); margin-bottom:10px; }
   .work-roles { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
@@ -196,7 +196,7 @@
   .contact-tagline { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-style:italic; color:rgba(250,246,240,.7); line-height:1.55; margin-bottom:20px; }
   .contact-tagline strong { color:var(--rose); font-style:normal; }
   .contact-note { font-size:.83rem; color:rgba(250,246,240,.38); line-height:1.75; }
-  .social-links { display:flex; flex-direction:column; gap:10px; }
+  .social-links { display: grid; grid-template-columns: repeat(2, 1fr); gap:10px; }
   .social-link { display:flex; align-items:center; gap:14px; padding:15px 19px; border-radius:14px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); text-decoration:none; color:var(--cream); transition:all .3s; }
   .social-link:hover { background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.15); transform:translateX(5px); }
   .social-link-icon { width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
@@ -206,7 +206,7 @@
   .social-link-icon svg { width:18px; height:18px; }
   .social-link-info { flex:1; }
   .social-link-name { font-size:.9rem; font-weight:500; margin-bottom:2px; }
-  .social-link-handle { font-size:.69rem; color:rgba(250,246,240,.36); letter-spacing:.05em; }
+  .social-link-handle { font-size:.8rem; color:rgba(250,246,240,.36); letter-spacing:.05em; }
   .social-link-arrow { font-size:.9rem; color:rgba(250,246,240,.2); transition:color .3s,transform .3s; }
   .social-link:hover .social-link-arrow { color:var(--rose); transform:translateX(3px); }
 
@@ -256,16 +256,11 @@
   <div class="hero-content">
     <div class="hero-ofo"><div class="ofo-dot"></div><span class="ofo-text">Open for Opportunities</span></div>
     <h1 class="hero-name">Rae<em>Carmel</em></h1>
-    <p class="hero-sub">Multidisciplinary creator — <strong>video editor</strong>, <strong>animator</strong>, <strong>vocalist</strong>, <strong>director</strong>, <strong>lyricist</strong>, and <strong>scriptwriter</strong>. Crafting worlds through motion, music, and storytelling.</p>
+    <p class="hero-sub">Multidisciplinary creator — <strong>video editor</strong>, <strong>animator</strong>, <strong>voice actor</strong>, <strong>director</strong>, <strong>lyricist</strong>, and <strong>scriptwriter</strong>. Crafting worlds through motion, music, and storytelling.</p>
     <div class="hero-meta">
       <div class="hero-meta-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         Laguna, Philippines
-      </div>
-      <div class="hero-meta-sep"></div>
-      <div class="hero-meta-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18M3 12h18M3 19h18"/></svg>
-        English · Filipino · Japanese (N5)
       </div>
     </div>
     <div class="hero-chips">
@@ -287,23 +282,27 @@
     <h2 class="section-title">At a <em>Glance</em></h2>
     <div class="section-line"></div>
   </div>
-  <p class="glance-intro">Numbers built from scratch — entirely self-driven, across 5+ years of consistent creating.</p>
+  <p class="glance-intro">Numbers built from scratch — entirely self-driven, across 6+ years of consistent creating.</p>
   <div class="glance-grid">
     <div class="glance-item" data-label="views">
-      <div class="glance-num"><span class="count-up" data-target="2" data-suffix="M+">0</span></div>
+      <div class="glance-num"><span class="count-up" data-target="4.8" data-suffix="M+">0</span></div>
       <div class="glance-label"><strong>Cross-platform views</strong>TikTok + YouTube combined</div>
     </div>
     <div class="glance-item" data-label="videos">
-      <div class="glance-num"><span class="count-up" data-target="126" data-suffix="+">0</span></div>
-      <div class="glance-label"><strong>Videos produced</strong>Across 3 channels, 5+ years</div>
+      <div class="glance-num"><span class="count-up" data-target="110" data-suffix="+">0</span></div>
+      <div class="glance-label"><strong>Videos produced</strong>Across 3 channels, 6+ years</div>
     </div>
     <div class="glance-item" data-label="wins">
       <div class="glance-num"><span class="count-up" data-target="4" data-suffix="×">0</span></div>
       <div class="glance-label"><strong>Competition wins</strong>Directing, editing &amp; vocal performance</div>
     </div>
-    <div class="glance-item" data-label="subs">
-      <div class="glance-num"><span class="count-up" data-target="9" data-suffix="K+">0</span></div>
-      <div class="glance-label"><strong>Combined subscribers</strong>akipella + MeSekai + AkiFlower</div>
+     <div class="glance-item" data-label="followers">
+      <div class="glance-num"><span class="count-up" data-target="14000" data-suffix="+">0</span></div>
+      <div class="glance-label"><strong>Followers gained</strong>Across TikTok<br>(MeSekai + AkiFlower)</div>
+    </div>
+    <div class="glance-item" data-label="subscribers">
+      <div class="glance-num"><span class="count-up" data-target="6400" data-suffix="+">0</span></div>
+      <div class="glance-label"><strong>Combined subscribers</strong>Across YouTube<br>(akipella + MeSekai + AkiFlower)</div>
     </div>
   </div>
 </section>
@@ -380,7 +379,7 @@
       <div class="skills-right-box">
         <div style="font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-light);margin-bottom:16px;">Languages</div>
         <div class="lang-row">
-          <span class="lang-name">English</span>
+          <span class="lang-name">English <small style="font-size:.7rem;color:var(--ink-light);">(C1)</small></span>
           <div class="lang-bars">
             <div class="lang-bar" style="background:var(--rose-deep);"></div><div class="lang-bar" style="background:var(--rose-deep);"></div><div class="lang-bar" style="background:var(--rose-deep);"></div><div class="lang-bar" style="background:var(--rose-deep);"></div><div class="lang-bar" style="background:var(--rose-deep);"></div>
           </div>
@@ -388,7 +387,7 @@
         <div class="lang-row">
           <span class="lang-name">Filipino</span>
           <div class="lang-bars">
-            <div class="lang-bar" style="background:var(--lavender-deep);"></div><div class="lang-bar" style="background:var(--lavender-deep);"></div><div class="lang-bar" style="background:var(--lavender-deep);"></div><div class="lang-bar" style="background:var(--lavender-deep);"></div><div class="lang-bar" style="background:var(--lavender-deep);"></div>
+            <div class="lang-bar" style="background:var(--lavender-deep);"></div><div class="lang-bar" style="background:var(--lavender-deep);"></div><div class="lang-bar" style="background:var(--lavender-deep);"></div><div class="lang-bar" style="background:var(--lavender-deep);"></div><div class="lang-bar" style="background:#9b96a63c;"></div>
           </div>
         </div>
         <div class="lang-row" style="margin-bottom:0;">
@@ -430,55 +429,90 @@
     <div class="channel-card reveal">
       <div class="channel-top">
         <div class="channel-badge badge-active"><span class="badge-dot"></span> Active</div>
-        <a href="#" class="channel-visit-btn" target="_blank" rel="noopener">Visit Channel <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="channel-links">
+          <a href="https://www.tiktok.com/@akiyamaflower" class="channel-visit-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:12px; height:12px;"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1 .05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.04-.1z"/></svg>
+            TikTok <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          
+          <a href="https://www.youtube.com/@akipella" class="channel-visit-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.52V8.48L15.5 12l-5.75 3.52z"/></svg>
+            YouTube <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
       </div>
       <div class="channel-name">akipella</div>
       <div class="channel-period">April 2025 – Present · Solo Online Persona</div>
-      <div class="channel-vc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.89L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>~17–20 videos across platforms</div>
+      <div class="channel-vc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.89L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>20 videos made</div>
       <div class="channel-roles"><span class="role-tag">Video Editor</span><span class="role-tag">Animator</span><span class="role-tag">Vocalist</span><span class="role-tag">Lyricist</span></div>
       <p class="channel-desc">Trending animations and anime edits set to popular songs, voiced as distinct characters. Known for expressive motion editing and consistent viral reach.</p>
       <div class="platform-stats">
         <div class="platform-block tt-block">
           <div class="platform-header"><div class="platform-logo tt-logo"><svg viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg></div><span class="platform-name">TikTok</span></div>
-          <div class="platform-mini-stats"><div><div class="mini-stat-num">1.7M</div><div class="mini-stat-label">Total Views</div></div><div><div class="mini-stat-num">600K</div><div class="mini-stat-label">Top Video</div></div><div><div class="mini-stat-num">4.3K+</div><div class="mini-stat-label">Followers</div></div></div>
+          <div class="platform-mini-stats"><div><div class="mini-stat-num">1.7M+</div><div class="mini-stat-label">Total Views</div></div><div><div class="mini-stat-num">600K+</div><div class="mini-stat-label">Top Video</div></div><div><div class="mini-stat-num">4.3K+</div><div class="mini-stat-label">Followers</div></div></div>
         </div>
         <div class="platform-block yt-block">
           <div class="platform-header"><div class="platform-logo yt-logo"><svg viewBox="0 0 24 24" fill="white"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.52V8.48L15.5 12l-5.75 3.52z"/></svg></div><span class="platform-name">YouTube</span></div>
-          <div class="platform-mini-stats"><div><div class="mini-stat-num">100K+</div><div class="mini-stat-label">Total Views</div></div><div><div class="mini-stat-num">26K</div><div class="mini-stat-label">Top Video</div></div><div><div class="mini-stat-num">700</div><div class="mini-stat-label">Subscribers</div></div></div>
+          <div class="platform-mini-stats"><div><div class="mini-stat-num">110K+</div><div class="mini-stat-label">Total Views</div></div><div><div class="mini-stat-num">26K+</div><div class="mini-stat-label">Top Video</div></div><div><div class="mini-stat-num">720+</div><div class="mini-stat-label">Subscribers</div></div></div>
         </div>
       </div>
-      <div class="video-embed-area"><div class="video-embed-label">Sample Videos — paste embeds here</div><div class="video-slots"><div class="video-slot"><svg viewBox="0 0 24 24" fill="none"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" fill="currentColor"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/></svg>Add Sample Video</div><div class="video-slot"><svg viewBox="0 0 24 24" fill="none"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" fill="currentColor"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/></svg>Add Sample Video</div></div></div>
+      <div class="video-embed-area"><div class="video-embed-label">Sample Videos</div><div class="video-slots">
+        <iframe class="video-slot" src="akipella gnarly.mp4" allowfullscreen></iframe>
+        <iframe class="video-slot" src="akipella beez.mp4" allowfullscreen></iframe>
+      </div></div>
     </div>
 
     <!-- MeSekai -->
     <div class="channel-card reveal reveal-delay-1">
       <div class="channel-top">
         <div class="channel-badge badge-active"><span class="badge-dot"></span> Active</div>
-        <a href="#" class="channel-visit-btn" target="_blank" rel="noopener">Visit Channel <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="channel-links">
+          <a href="https://www.tiktok.com/@me.sekai" class="channel-visit-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:12px; height:12px;"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1 .05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.04-.1z"/></svg>
+            TikTok <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          
+          <a href="https://www.youtube.com/@akiflower" class="channel-visit-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.52V8.48L15.5 12l-5.75 3.52z"/></svg>
+            YouTube <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
       </div>
       <div class="channel-name">MeSekai</div>
       <div class="channel-period">April 2025 – Present · Fandub Team</div>
-      <div class="channel-vc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.89L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>37 videos across platforms</div>
+      <div class="channel-vc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.89L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>37 videos made</div>
       <div class="channel-roles"><span class="role-tag">Owner</span><span class="role-tag">Manager</span><span class="role-tag">Video Editor</span><span class="role-tag">Animator</span><span class="role-tag">Audio Mixer</span><span class="role-tag">Vocalist</span></div>
       <p class="channel-desc">One of the top well-known Project Sekai fandub channels. Produces 2D music videos with dynamic character sprites, complex camera movements, and rich visual effects alongside skits and original audio mixes.</p>
       <div class="platform-stats">
         <div class="platform-block tt-block">
           <div class="platform-header"><div class="platform-logo tt-logo"><svg viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg></div><span class="platform-name">TikTok</span></div>
-          <div class="platform-mini-stats"><div><div class="mini-stat-num">—</div><div class="mini-stat-label">Total Views</div></div><div><div class="mini-stat-num">—</div><div class="mini-stat-label">Top Video</div></div><div><div class="mini-stat-num">—K+</div><div class="mini-stat-label">Followers</div></div></div>
+          <div class="platform-mini-stats"><div><div class="mini-stat-num">3M+</div><div class="mini-stat-label">Total Views</div></div><div><div class="mini-stat-num">630K+</div><div class="mini-stat-label">Top Video</div></div><div><div class="mini-stat-num">~10K+</div><div class="mini-stat-label">Followers</div></div></div>
         </div>
         <div class="platform-block yt-block">
           <div class="platform-header"><div class="platform-logo yt-logo"><svg viewBox="0 0 24 24" fill="white"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.52V8.48L15.5 12l-5.75 3.52z"/></svg></div><span class="platform-name">YouTube</span></div>
-          <div class="platform-mini-stats"><div><div class="mini-stat-num">170K+</div><div class="mini-stat-label">Total Views</div></div><div><div class="mini-stat-num">300K+</div><div class="mini-stat-label">Top Short</div></div><div><div class="mini-stat-num">3.9K+</div><div class="mini-stat-label">Subscribers</div></div></div>
+          <div class="platform-mini-stats"><div><div class="mini-stat-num">700K+</div><div class="mini-stat-label">Total Views</div></div><div><div class="mini-stat-num">305K+</div><div class="mini-stat-label">Top Short</div></div><div><div class="mini-stat-num">~4K+</div><div class="mini-stat-label">Subscribers</div></div></div>
         </div>
       </div>
-      <div class="video-embed-area"><div class="video-embed-label">Sample Videos — paste embeds here</div><div class="video-slots"><div class="video-slot"><svg viewBox="0 0 24 24" fill="none"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" fill="currentColor"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/></svg>Add Sample Video</div><div class="video-slot"><svg viewBox="0 0 24 24" fill="none"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" fill="currentColor"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/></svg>Add Sample Video</div></div></div>
+      <div class="video-embed-area"><div class="video-embed-label">Sample Videos</div><div class="video-slots">
+        <div class="video-slot">
+          <iframe src="https://www.youtube.com/embed/M4pLr_Kbr-Y?si=uldKHatN7GTco92C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-slot">
+          <iframe src="akipella beez.mp4" allowfullscreen></iframe>
+        </div>
+      </div></div>
     </div>
 
     <!-- AkiFlower -->
     <div class="channel-card reveal reveal-delay-2">
       <div class="channel-top">
-        <div class="channel-badge badge-former">Archive</div>
-        <a href="#" class="channel-visit-btn" target="_blank" rel="noopener">Visit Channel <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="channel-badge badge-former">Inactive</div>
+        <div class="channel-links">
+          <a href="https://www.youtube.com/@akipella" class="channel-visit-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.52V8.48L15.5 12l-5.75 3.52z"/></svg>
+            YouTube <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
       </div>
       <div class="channel-name">AkiFlower</div>
       <div class="channel-period">2021 – 2023 · Former Solo Channel</div>
@@ -488,10 +522,10 @@
       <div class="platform-stats">
         <div class="platform-block yt-block">
           <div class="platform-header"><div class="platform-logo yt-logo"><svg viewBox="0 0 24 24" fill="white"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.52V8.48L15.5 12l-5.75 3.52z"/></svg></div><span class="platform-name">YouTube</span></div>
-          <div class="platform-mini-stats"><div><div class="mini-stat-num">140K+</div><div class="mini-stat-label">Total Views</div></div><div><div class="mini-stat-num">23K</div><div class="mini-stat-label">Top Video</div></div><div><div class="mini-stat-num">1.7K+</div><div class="mini-stat-label">Subscribers</div></div></div>
+          <div class="platform-mini-stats"><div><div class="mini-stat-num">140K+</div><div class="mini-stat-label">Total Views</div></div><div><div class="mini-stat-num">23K+</div><div class="mini-stat-label">Top Video</div></div><div><div class="mini-stat-num">1.7K+</div><div class="mini-stat-label">Subscribers</div></div></div>
         </div>
       </div>
-      <div class="video-embed-area" style="margin-top:8px;"><div class="video-embed-label">Sample Videos — paste embeds here</div><div class="video-slots"><div class="video-slot"><svg viewBox="0 0 24 24" fill="none"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" fill="currentColor"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/></svg>Add Sample Video</div><div class="video-slot"><svg viewBox="0 0 24 24" fill="none"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" fill="currentColor"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/></svg>Add Sample Video</div></div></div>
+      <div class="video-embed-area" style="margin-top:8px;"><div class="video-embed-label">Sample Videos</div><div class="video-slots"><div class="video-slot"><svg viewBox="0 0 24 24" fill="none"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" fill="currentColor"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/></svg>Add Sample Video</div><div class="video-slot"><svg viewBox="0 0 24 24" fill="none"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" fill="currentColor"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/></svg>Add Sample Video</div></div></div>
     </div>
 
   </div>
@@ -537,7 +571,7 @@
       <div class="work-video-slot"><svg viewBox="0 0 24 24" fill="none"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" fill="currentColor"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/></svg>Add Video</div>
       <div class="work-big-icon">🌸</div>
     </div>
-    <div class="work-card gold reveal reveal-delay-1">
+    <div class="work-card rose reveal reveal-delay-1">
       <div class="work-year">2026 · Solo</div>
       <div class="work-title">PH Mythology Series</div>
       <div class="work-type">Narration · TikTok Series</div>
@@ -546,7 +580,7 @@
       <div class="work-video-slot"><svg viewBox="0 0 24 24" fill="none"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" fill="currentColor"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/></svg>Add Video</div>
       <div class="work-big-icon">🌙</div>
     </div>
-    <div class="work-card rose reveal reveal-delay-2">
+    <div class="work-card cream reveal reveal-delay-2">
       <div class="work-year">2026 · Solo <span class="award-badge">★ Champion</span></div>
       <div class="work-title">Mozzarella Slime Vlog</div>
       <div class="work-type">Vlog · Storytelling · How-to</div>
@@ -589,24 +623,24 @@
       <p class="contact-note">Whether you need a video editor, animator, vocal talent, or a director who can handle all of the above — let's build something together. Based in Laguna, PH · Open to remote work.</p>
     </div>
     <div class="social-links reveal reveal-delay-1">
-      <a href="#" class="social-link" target="_blank" rel="noopener">
+      <a href="https://mail.google.com/mail/u/0/?tf=cm&fs=1&to=raecarmel.ae@gmail.com&hl=en-US" class="social-link" target="_blank" rel="noopener">
         <div class="social-link-icon sl-email"><svg viewBox="0 0 24 24" fill="white"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
-        <div class="social-link-info"><div class="social-link-name">Email</div><div class="social-link-handle">your.email@example.com</div></div>
+        <div class="social-link-info"><div class="social-link-name">Email</div><div class="social-link-handle">raecarmel.ae@gmail.com</div></div>
         <div class="social-link-arrow">→</div>
       </a>
-      <a href="#" class="social-link" target="_blank" rel="noopener">
+      <a href="https://www.tiktok.com/@akiyamaflower" class="social-link" target="_blank" rel="noopener">
         <div class="social-link-icon sl-tiktok"><svg viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg></div>
-        <div class="social-link-info"><div class="social-link-name">TikTok — akipella</div><div class="social-link-handle">@__akipella__</div></div>
+        <div class="social-link-info"><div class="social-link-name">TikTok — akipella (@akiyamaflower)</div><div class="social-link-handle">4.3k subscribers · 17 videos</div></div>
         <div class="social-link-arrow">→</div>
       </a>
-      <a href="#" class="social-link" target="_blank" rel="noopener">
+      <a href="https://www.youtube.com/@akipella" class="social-link" target="_blank" rel="noopener">
         <div class="social-link-icon sl-youtube"><svg viewBox="0 0 24 24" fill="white"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.52V8.48L15.5 12l-5.75 3.52z"/></svg></div>
-        <div class="social-link-info"><div class="social-link-name">YouTube — akipella</div><div class="social-link-handle">700 subscribers · 20 videos</div></div>
+        <div class="social-link-info"><div class="social-link-name">YouTube — akipella (@akipella)</div><div class="social-link-handle">720+ subscribers · 20 videos</div></div>
         <div class="social-link-arrow">→</div>
       </a>
-      <a href="#" class="social-link" target="_blank" rel="noopener">
+      <a href="https://www.linkedin.com/in/rae-carmel-egusquiza/" class="social-link" target="_blank" rel="noopener">
         <div class="social-link-icon sl-linkedin"><svg viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
-        <div class="social-link-info"><div class="social-link-name">LinkedIn</div><div class="social-link-handle">Add your LinkedIn URL</div></div>
+        <div class="social-link-info"><div class="social-link-name">LinkedIn</div><div class="social-link-handle">linkedin.com/in/rae-carmel-egusquiza</div></div>
         <div class="social-link-arrow">→</div>
       </a>
       <a href="#" class="social-link" target="_blank" rel="noopener">
@@ -625,8 +659,8 @@
 
 <div class="footer-strip">
   <span>© 2026 Rae Carmel</span>
-  <span>Video Editor · Animator · Vocalist · Director · Lyricist · Scriptwriter</span>
-  <span>Laguna, Philippines · Open to Remote Work</span>
+  <span>Video Editor · Animator · Vocalist · Voice Actor · Director · Lyricist · Scriptwriter</span>
+  <span>Laguna, Philippines · Open to Work</span>
 </div>
 
 <script>
@@ -649,11 +683,30 @@
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
   function easeOut(t){return 1-Math.pow(1-t,3);}
-  function animateCount(el){
-    const target=parseFloat(el.dataset.target),suffix=el.dataset.suffix||'',isFloat=target%1!==0,dur=1900,start=performance.now();
-    function step(now){const p=Math.min((now-start)/dur,1),v=easeOut(p);el.textContent=(isFloat?(v*target).toFixed(1):Math.round(v*target))+suffix;if(p<1)requestAnimationFrame(step);}
-    requestAnimationFrame(step);
+  function animateCount(el) {
+  const target = parseFloat(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const duration = 2000;
+  let start = null;
+
+  function step(ts) {
+    if (!start) start = ts;
+    const progress = Math.min((ts - start) / duration, 1);
+    const eased = easeOut(progress);
+    const current = eased * target;
+
+    // Use .toLocaleString() to add commas
+    // If it's a whole number, we use 0 decimal places. 
+    // If it's a decimal (like 4.8), we preserve the decimal.
+    const formattedNum = target % 1 === 0 
+      ? Math.floor(current).toLocaleString() 
+      : current.toFixed(1).toLocaleString();
+
+    el.innerText = formattedNum + suffix;
+    if (progress < 1) requestAnimationFrame(step);
   }
+  requestAnimationFrame(step);
+}
   const cobs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.count-up').forEach(el=>animateCount(el));cobs.unobserve(e.target);}});},{threshold:.3});
   document.querySelectorAll('.glance-grid').forEach(el=>cobs.observe(el));
 </script>
