@@ -113,7 +113,11 @@
   .hero-d2 { position:absolute; right:12%; top:19%; width:240px; height:240px; border-radius:50%; border:1px dashed rgba(217,168,176,.35); animation:spin 28s linear infinite reverse; }
   .hero-d3 { position:absolute; right:18%; top:26%; width:130px; height:130px; border-radius:50%; background:radial-gradient(circle,rgba(228,222,242,.7),rgba(217,168,176,.3)); }
   @keyframes spin { to{transform:rotate(360deg);} }
-  .hero-content { position:relative; z-index:1; max-width:700px; }
+  .hero-content { max-width:700px; }
+  .hero-layout { display:flex; align-items:center; justify-content:space-between; gap:40px; width:100%; position:relative; z-index:1; }
+  .hero-content { max-width:600px; }
+  .hero-image-wrap { flex-shrink:0; }
+  .hero-portrait { width:400px; height:400px; margin-right: 200px; object-fit:cover; border-radius:50%; border:3px solid var(--rose-light); box-shadow:0 12px 40px rgba(185,122,136,.25); display:block; }
 
   .hero-ofo { display:inline-flex; align-items:center; gap:10px; padding:11px 22px; border-radius:30px; background:rgba(185,122,136,.1); border:1.5px solid var(--rose-deep); margin-bottom:28px; animation:fadeUp .8s both, ofo-pulse 2.5s 1s ease infinite; }
   @keyframes ofo-pulse { 0%,100%{box-shadow:0 0 0 0 rgba(185,122,136,.3);} 50%{box-shadow:0 0 0 9px rgba(185,122,136,0);} }
@@ -161,7 +165,7 @@
   .glance-label strong { color:rgba(250,246,240,.72); display:block; font-weight:400; font-size:.9rem; letter-spacing:0; text-transform:none; margin-bottom:2px; }
 
   /* SKILLS */
-  .skills-section { background:var(--white); }
+  .skills-section { background:var(--white); padding-bottom: 50px;}
   .skills-cols { display:grid; grid-template-columns:1fr 1fr; gap:56px; }
   .skills-intro { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-style:italic; line-height:1.2; color:var(--ink-light); margin-bottom:30px; border-left:3px solid var(--rose); padding-left:20px; }
   .skill-category { margin-bottom:24px; }
@@ -171,19 +175,20 @@
   .skill-pill { font-size:.85rem; padding:7px 14px; border-radius:40px; background:var(--cream); border:1px solid var(--cream-dark); color:var(--ink); transition:all .3s; display:flex; align-items:center; gap:6px; }
   .skill-pill:hover { background:var(--lavender-light); border-color:var(--lavender); transform:translateY(-2px); box-shadow:0 5px 15px rgba(158,142,196,.13); }
   .pill-dot { width:5px; height:5px; border-radius:50%; flex-shrink:0; }
-  .tools-block { margin-top:30px; }
-  .tools-title { font-weight: 550; font-size:1rem; letter-spacing:.2em; text-transform:uppercase; color:var(--lavender-deep); margin-bottom:13px; display:flex; align-items:center; gap:10px; }
+  .tools-block { margin-top:5px; }
+  .tools-title { font-weight: 550; font-size:1rem; letter-spacing:.2em; text-transform:uppercase; color:var(--lavender-deep); margin-bottom:50px; justify-content:center; display:flex; align-items:center; gap:10px; }
+  .tools-title::before { content:''; flex:1; height:1px; background:var(--lavender-light); }
   .tools-title::after { content:''; flex:1; height:1px; background:var(--lavender-light); }
-  .tools-logos { display:flex; flex-wrap: wrap; gap:10px; }
+  .tools-logos { display:flex; flex-wrap: wrap; gap:10px; justify-content:center; }
   .tool-logo { width: 90px; display:flex; justify-content: center; flex-direction:column; align-items:center; gap:8px; padding:14px 16px; border-radius:20px; background:var(--cream); border:1px solid var(--cream-dark); font-size:.72rem; color:var(--ink); transition:all .3s; min-width:80px; text-align:center; letter-spacing:.03em; }
   .tool-logo:hover { transform:translateY(-4px); box-shadow:0 10px 28px rgba(0,0,0,.08); border-color:var(--lavender); }
   .tool-logo img { width:50px; height:50px; flex-shrink:0; object-fit: contain; border-radius: 10px; }
   .skills-right-box { background:linear-gradient(135deg,var(--lavender-light),var(--rose-light)); border-radius:20px; padding:26px; border:1px solid rgba(201,191,224,.45); margin-bottom:20px; }
   .lang-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
   .lang-row:last-child { margin-bottom:0; }
-  .lang-name { font-size:.9rem; color:var(--ink); }
+  .lang-name { font-size:.95rem; color:var(--ink); }
   .lang-bars { display:flex; gap:5px; }
-  .lang-bar { width:45px; height:10px; border-radius:5px; }
+  .lang-bar { width:50px; height:10px; border-radius:5px; }
   .loc-box { background:var(--cream); border-radius:16px; padding:20px 20px; border:1px solid var(--cream-dark); display:flex; align-items:center; gap:13px; margin-bottom:20px; }
   .loc-box svg { width:26px; height:26px; flex-shrink:0; opacity:.4; }
   .offers-box { background:var(--cream); border-radius:16px; padding:20px 20px; border:1px solid var(--cream-dark); }
@@ -225,8 +230,8 @@
   .platform-logo svg { width:13px; height:13px; }
   .platform-name { font-size:.85rem; letter-spacing:.13em; text-transform:uppercase; color:var(--ink); font-weight:500; }
   .platform-mini-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
-  .mini-stat-num { font-family:'Roboto',sans-serif; font-size:1.42rem; color:var(--ink); line-height:1; letter-spacing: -0.08em; margin-top:8px; }
-  .mini-stat-label { font-size:.7rem; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-light); margin-top:8px; }
+  .mini-stat-num { font-family:'Roboto',sans-serif; font-size:1.42rem; color:var(--ink); line-height:1; letter-spacing: -0.05em; margin-top:8px; }
+  .mini-stat-label { font-size:.7rem; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-light); margin-top:8px; }
   .video-embed-area { margin-top:2px; }
   .video-embed-label { font-size:.85rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-light); margin-bottom:8px; }
   .video-slots { display:grid; grid-template-columns:1fr; gap:10px; }
@@ -295,6 +300,10 @@
     section,.glance-section{padding:60px 20px;}
     .hero{padding:100px 20px 60px;}
     .hero-d1,.hero-d2,.hero-d3{display:none;}
+    .hero-layout { flex-direction:column-reverse; align-items:center; text-align:center; }
+    .hero-portrait { width:180px; height:180px; margin-right: 0;}
+    .hero-content { max-width:100%; }
+    .hero-chips, .hero-btns, .hero-meta { justify-content:center; }
     .glance-grid{grid-template-columns:1fr 1fr;}
     .skills-cols,.works-featured,.works-row,.works-bottom,.contact-inner{grid-template-columns:1fr;gap:24px;}
     .divider{margin:0 20px;}
@@ -341,24 +350,28 @@
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-d1"></div><div class="hero-d2"></div><div class="hero-d3"></div>
-  <!-- <img src="logo.png" alt="Hero Image"> -->
-  <div class="hero-content">
-    <div class="hero-ofo"><div class="ofo-dot"></div><span class="ofo-text">Open for Opportunities</span></div>
-    <h1 class="hero-name">Rae<em>Carmel</em></h1>
-    <p class="hero-sub">Multimedia producer and content creator: <strong>video editor</strong>, <strong>animator</strong>, <strong>voice actor</strong>, <strong>director</strong>, <strong>lyricist</strong>, and <strong>scriptwriter</strong>. Aiming to produce videos that the audience will enjoy.</p>
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-        Laguna, Philippines
+  <div class="hero-layout">
+    <div class="hero-content">
+      <div class="hero-ofo"><div class="ofo-dot"></div><span class="ofo-text">Open for Opportunities</span></div>
+      <h1 class="hero-name">Rae<em>Carmel</em></h1>
+      <p class="hero-sub">Multimedia producer and content creator: <strong>video editor</strong>, <strong>animator</strong>, <strong>voice actor</strong>, <strong>director</strong>, <strong>lyricist</strong>, and <strong>scriptwriter</strong>. Aiming to produce videos that the audience will enjoy.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Laguna, Philippines
+        </div>
+      </div>
+      <div class="hero-chips">
+        <span class="chip">Animation</span><span class="chip">Video Editing</span><span class="chip">Vocal Work</span>
+        <span class="chip">Direction</span><span class="chip">Lyric Writing</span><span class="chip">Scriptwriting</span><span class="chip">Audio Mixing</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#works" class="btn-primary">View Works ↓</a>
+        <a href="#contact" class="btn-secondary" style="background-color: var(--cream);">Contact Me →</a>
       </div>
     </div>
-    <div class="hero-chips">
-      <span class="chip">Animation</span><span class="chip">Video Editing</span><span class="chip">Vocal Work</span>
-      <span class="chip">Direction</span><span class="chip">Lyric Writing</span><span class="chip">Scriptwriting</span><span class="chip">Audio Mixing</span>
-    </div>
-    <div class="hero-btns">
-      <a href="#works" class="btn-primary">View Works ↓</a>
-      <a href="#contact" class="btn-secondary" style="background-color: var(--cream);">Contact Me →</a>
+    <div class="hero-image-wrap">
+      <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_640.png" alt="Profile" class="hero-portrait">
     </div>
   </div>
 </section>
@@ -450,39 +463,6 @@
           <span class="skill-pill"><span class="pill-dot" style="background:var(--ink-light)"></span>On-screen Acting</span>
         </div>
       </div>
-      <div class="tools-block reveal">
-        <div class="tools-title">Tools &amp; Software</div>
-        <div class="tools-logos">
-          <div class="tool-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" alt="After Effects">
-            After Effects
-          </div>
-          <div class="tool-logo">
-            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/capcut-icon.png" alt="CapCut"">
-            CapCut
-          </div>
-          <div class="tool-logo">
-            <img src="https://play-lh.googleusercontent.com/QhKa3YvEucCd51M0uiu4XYhYy1abr73sYb3cCXN9Uco7AY07LA4RRiCL7xSbeKjHXJA" alt="BandLab">
-            BandLab
-          </div>
-          <div class="tool-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Audacity_Logo.svg/500px-Audacity_Logo.svg.png" alt="Audacity">
-            Audacity
-          </div>
-          <div class="tool-logo">
-            <img src="https://img.icons8.com/color/512/live2d-cubism.png" alt="Live2D">
-            Live2D
-          </div>
-          <div class="tool-logo">
-            <img src="https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxo4K81Ei7WzcnqEk8W.MgwZKGOGyylNO5Zmpypx72dKW30JQijPB.R5zwcpxtBwH3OJlEQGtDjjqpeLMKnjHhi8-&format=source" alt="Canva">
-            Canva
-          </div>
-          <div class="tool-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google_Docs_logo_%282014-2020%29.svg" alt="Google Docs">
-            Google Docs
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="reveal reveal-delay-1" style="padding-top:6px;">
@@ -511,7 +491,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose-deep)" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         <div>
           <div style="font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-light);margin-bottom:3px;">Based in</div>
-          <div style="font-size:1.2rem;color:var(--ink);font-family:'Cormorant Garamond',serif;font-style:italic;">Laguna, Philippines</div>
+          <div style="font-size:1.3rem;color:var(--ink);font-family:'Cormorant Garamond',serif;font-style:italic;">Laguna, Philippines</div>
         </div>
       </div>
       <div class="offers-box">
@@ -523,6 +503,60 @@
       </div>
     </div>
   </div>
+
+  <div class="tools-block reveal">
+        <div class="tools-title">Tools &amp; Software</div>
+        <div class="tools-logos">
+          <div class="tool-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" alt="After Effects">
+            After Effects
+          </div>
+          <div class="tool-logo">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/capcut-icon.png" alt="CapCut"">
+            CapCut
+          </div>
+          <div class="tool-logo">
+            <img src="https://play-lh.googleusercontent.com/QhKa3YvEucCd51M0uiu4XYhYy1abr73sYb3cCXN9Uco7AY07LA4RRiCL7xSbeKjHXJA" alt="BandLab">
+            BandLab
+          </div>
+          <div class="tool-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Audacity_Logo.svg/500px-Audacity_Logo.svg.png" alt="Audacity">
+            Audacity
+          </div>
+          <div class="tool-logo">
+            <img src="https://img.icons8.com/color/512/live2d-cubism.png" alt="Live2D">
+            Live2D
+          </div>
+          <div class="tool-logo">
+            <img src="https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxo4K81Ei7WzcnqEk8W.MgwZKGOGyylNO5Zmpypx72dKW30JQijPB.R5zwcpxtBwH3OJlEQGtDjjqpeLMKnjHhi8-&format=source" alt="Canva">
+            Canva
+          </div>
+          <div class="tool-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" alt="Google Drive">
+            Google Drive
+          </div>
+          <div class="tool-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Google_Meet_icon_%282020%29.svg" alt="Google Meet">
+            Google Meet
+          </div>
+          <div class="tool-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google_Docs_logo_%282014-2020%29.svg" alt="Google Docs">
+            Google Docs
+          </div>
+          <div class="tool-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Google_Sheets_logo_%282014-2020%29.svg" alt="Google Sheets">
+            Google Sheets
+          </div>
+          <div class="tool-logo">
+          <a href="https://www.vecteezy.com/free-vector/discord"><img src="https://static.vecteezy.com/system/resources/previews/006/892/625/non_2x/discord-logo-icon-editorial-free-vector.jpg" alt="Discord"></a>
+            Discord
+          </div>
+          <div class="tool-logo">
+          <img src="https://s.yimg.com/ny/api/res/1.2/byp2BW8QuB_jw8FigeRcMQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTQyMDtoPTQyMA--/https://media.zenfs.com/en/globenewswire.com/b7392f358b77e9194a728b76258778b8" alt="Zoom">
+            Zoom
+          </div>
+        </div>
+      </div>
 </section>
 
 <div class="divider"></div>
@@ -695,7 +729,7 @@
       <p class="work-desc"> A TikTok series on Philippine mythology series' through each deities' perspectives. The use of sound effects, color grading, and script writing further enhanced the viewing experienced.</p>
       <div class="work-video-slot"><iframe src="https://www.tiktok.com/player/v1/7590054288794078485?&music_info=0&description=0" allow="fullscreen" title="TikTok video player"> </iframe></div>
     </div>
-    <div class="work-card lilac reveal">
+    <div class="work-card cream reveal reveal-delay-2">
       <div class="work-year">2025 · Duo <span class="award-badge">★ 1st Runner Up</span></div>
       <div class="work-title">Library Podcast</div>
       <div class="work-type">Podcast · Documentary-style</div>
@@ -706,18 +740,19 @@
   </div>
 
   <div class="works-bottom">
-    <div class="work-card cream reveal reveal-delay-2">
+    <div class="work-card lavender reveal">
       <div class="work-year">2026 · Solo <span class="award-badge">★ Champion</span></div>
       <div class="work-title">Mozzarella Slime Vlog</div>
       <div class="work-type">Vlog · Storytelling · How-to</div>
       <div class="work-roles"><span class="work-role">Director</span><span class="work-role">Actor</span><span class="work-role">Video Editor</span><span class="work-role">Scriptwriter</span></div>
       <p class="work-desc">Champion vlog narrating the creation of a mozzarella-stick slime replica through storytelling, with layered audio and effects to maximize engagement.</p>
-      <div class="work-video-slot" style="aspect-ratio:9/16; width: 250px; height: auto;"><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F3767889293507192%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe></div>
+      <div class="work-video-slot" style="aspect-ratio:9/16; width: 250px; height: auto; margin:0 auto;"><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F3767889293507192%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe></div>
+      <!-- <div class="work-video-slot" style="aspect-ratio:9/16; width: 250px; height: auto;"><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F3767889293507192%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe></div> -->
     </div>
     <div class="work-card placeholder reveal reveal-delay-1">
       <div style="font-size:2.2rem;margin-bottom:11px;opacity:.4;">✦</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--ink-light);line-height:1.6;">More projects<br>coming soon</div>
-      <div style="font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--lavender-deep);margin-top:9px;">Always creating</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:var(--ink-light);line-height:1.6;">More projects<br>coming soon</div>
+      <div style="font-size:.9rem;letter-spacing:.15em;text-transform:uppercase;color:var(--lavender-deep);margin-top:9px;">Always creating</div>
     </div>
   </div>
 </section>
