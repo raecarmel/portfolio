@@ -14,9 +14,81 @@
     --ink: #2C2635; --ink-light: #6B6277;
     --gold: #C9A96E; --white: #FFFDFB;
   }
+  /* DARK MODE OVERRIDES */
+  html.dark {
+    --cream: #1A1625;
+    --cream-dark: #251E33;
+    --lavender: #4A3F6B;
+    --lavender-light: #2E2545;
+    --lavender-deep: #B8A8E0;
+    --rose: #7A4F58;
+    --rose-light: #3D2830;
+    --rose-deep: #D4889A;
+    --ink: #EDE8F5;
+    --ink-light: #A89BB8;
+    --gold: #D4AE6E;
+    --white: #221B32;
+  }
+
+  html.dark .section-title { color: #FFF; }
+  html.dark .social-link-name { color: #FFF; }
+  html.dark .award-badge { background: rgba(212, 174, 110, 0.2);  color: var(--gold);  border-color: var(--gold);  }
+  html.dark .work-role {  background: rgba(255, 255, 255, 0.1);  color: #FFF;  border-color: rgba(255, 255, 255, 0.2);  }
+
+  html.dark nav { background:rgba(26,22,37,.95); border-bottom-color:rgba(74,63,107,.35); }
+  html.dark .hero-bg { background: radial-gradient(ellipse 60% 50% at 80% 30%,rgba(74,63,107,.35),transparent), radial-gradient(ellipse 50% 60% at 20% 70%,rgba(122,79,88,.25),transparent), var(--cream); }
+  html.dark .glance-section { background:#120E1D; }
+  html.dark .glance-grid { background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.06); }
+  html.dark .glance-item { background:rgba(255,255,255,.02); }
+  html.dark .glance-item:hover { background:rgba(255,255,255,.05); }
+  html.dark .tt-block { background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.1); }
+  html.dark .yt-block { background:rgba(255,80,80,.07); border-color:rgba(255,80,80,.15); }
+  html.dark .platform-name { color:var(--ink-light); }
+  html.dark .mini-stat-num { color:var(--ink); }
+  html.dark .video-slot { background:var(--lavender-light); border-color:rgba(74,63,107,.6); }
+  html.dark .work-video-slot { background:rgba(255,255,255,.06); border-color:rgba(74,63,107,.5); }
+  html.dark .work-card.cream { background:linear-gradient(135deg,var(--white),var(--cream-dark)); border-color:var(--cream-dark); }
+  html.dark .work-card.placeholder { background:var(--cream-dark); border-color:rgba(74,63,107,.4); }
+  html.dark .skills-right-box { background:linear-gradient(135deg,rgba(46,37,69,.8),rgba(61,40,48,.7)); border-color:rgba(74,63,107,.4); }
+  html.dark .loc-box, html.dark .offers-box { background:var(--white); border-color:var(--cream-dark); }
+  html.dark .channel-card { background:var(--white); border-color:var(--cream-dark); }
+  html.dark .channel-visit-btn { background:var(--cream-dark); border-color:var(--lavender); }
+  html.dark .channel-vc { background:var(--cream-dark); border-color:var(--lavender); }
+  html.dark .tool-logo { background:var(--cream-dark); border-color:var(--lavender); color:var(--ink); }
+  html.dark .skill-pill { background:var(--cream-dark); border-color:var(--lavender); color:var(--ink); }
+  html.dark .chip { background:var(--white); border-color:var(--cream-dark); }
+  html.dark .btn-secondary { border-color:var(--lavender); color:var(--ink); }
+  html.dark .footer-strip { background:#120E1D; border-top-color:rgba(255,255,255,.05); }
+  html.dark .divider { opacity:.3; }
+  html.dark .contact { background:#120E1D; }
+  html.dark .social-link { background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.08); }
+  html.dark .social-link:hover { background:rgba(255,255,255,.08); }
+  html.dark .cursor { mix-blend-mode:normal; }
+
+  /* Theme toggle button */
+  .theme-toggle {
+    width:36px; height:36px;
+    border-radius:50%;
+    border:1.5px solid var(--lavender);
+    background:transparent;
+    color:var(--ink-light);
+    display:flex; align-items:center; justify-content:center;
+    cursor:none;
+    transition:border-color .3s, color .3s, background .3s, transform .3s;
+    flex-shrink:0;
+  }
+  .theme-toggle:hover {
+    border-color:var(--rose-deep);
+    color:var(--rose-deep);
+    background:rgba(185,122,136,.08);
+    transform:rotate(20deg);
+  }
+  .theme-toggle svg { width:16px; height:16px; transition:transform .5s ease; }
+  html.dark .theme-toggle svg { transform:rotate(180deg); }
+
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; }
-  body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; overflow-x:hidden; cursor:none; }
+  body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; overflow-x:hidden; cursor:none; transition:background .4s, color .4s; }
 
   .cursor { width:12px; height:12px; background:var(--rose-deep); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:width .3s,height .3s,background .3s; mix-blend-mode:multiply; }
   .cursor-ring { width:36px; height:36px; border:1.5px solid var(--lavender-deep); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:left .06s,top .06s,width .3s,height .3s,border-color .3s; opacity:.7; }
@@ -32,6 +104,7 @@
   .nav-cta { font-size:.69rem; letter-spacing:.14em; text-transform:uppercase; padding:8px 20px; border-radius:20px; background:var(--rose-deep); color:#fff !important; text-decoration:none; transition:background .3s,transform .2s; }
   .nav-cta:hover { background:var(--rose); transform:translateY(-1px); }
   .nav-cta::after { display:none !important; }
+  .nav-right { display:flex; align-items:center; gap:14px; }
 
   /* HERO */
   .hero { min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden; padding:120px 60px 80px; }
@@ -78,7 +151,7 @@
   .glance-section .section-title { color:var(--cream); }
   .glance-section .section-title em { color:var(--rose); }
   .glance-section .section-line { background:linear-gradient(to right,var(--rose),transparent); opacity:.4; }
-  .glance-intro { font-family:'Cormorant Garamond',serif; font-size:1.08rem; font-style:italic; color:rgba(250,246,240,.42); margin-bottom:48px; max-width:480px; }
+  .glance-intro { font-family:'Cormorant Garamond',serif; font-size:1.08rem; font-style:italic; color:rgba(250,246,240,.42); margin-bottom:48px; }
   .glance-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:2px; background:rgba(255,255,255,.06); border-radius:24px; overflow:hidden; border:1px solid rgba(255,255,255,.08); }
   .glance-item { padding:38px 30px; background:rgba(255,255,255,.03); transition:background .3s; position:relative; }
   .glance-item:hover { background:rgba(255,255,255,.07); }
@@ -101,10 +174,10 @@
   .tools-block { margin-top:30px; }
   .tools-title { font-size:.67rem; letter-spacing:.2em; text-transform:uppercase; color:var(--lavender-deep); margin-bottom:13px; display:flex; align-items:center; gap:10px; }
   .tools-title::after { content:''; flex:1; height:1px; background:var(--lavender-light); }
-  .tools-logos { display:flex; flex-wrap:wrap; gap:8px; }
-  .tool-logo { display:flex; align-items:center; gap:7px; padding:8px 14px; border-radius:12px; background:var(--cream); border:1px solid var(--cream-dark); font-size:.76rem; color:var(--ink); transition:all .3s; }
-  .tool-logo:hover { transform:translateY(-3px); box-shadow:0 7px 20px rgba(0,0,0,.06); }
-  .tool-logo svg { width:17px; height:17px; flex-shrink:0; }
+  .tools-logos { padding: 10px 15px 30px 15px;display:flex; flex-wrap: wrap; gap:10px; }
+  .tool-logo { display:flex; flex-direction:column; align-items:center; gap:8px; padding:14px 16px; border-radius:20px; background:var(--cream); border:1px solid var(--cream-dark); font-size:.72rem; color:var(--ink); transition:all .3s; min-width:80px; text-align:center; letter-spacing:.03em; }
+  .tool-logo:hover { transform:translateY(-4px); box-shadow:0 10px 28px rgba(0,0,0,.08); border-color:var(--lavender); }
+  .tool-logo img { width:50px; height:50px; flex-shrink:0; object-fit: contain; border-radius: 10px; }
   .skills-right-box { background:linear-gradient(135deg,var(--lavender-light),var(--rose-light)); border-radius:20px; padding:26px; border:1px solid rgba(201,191,224,.45); margin-bottom:20px; }
   .lang-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
   .lang-row:last-child { margin-bottom:0; }
@@ -181,7 +254,6 @@
   .work-roles { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
   .work-role { font-size:.62rem; padding:3px 9px; border-radius:8px; background:rgba(255,255,255,.55); color:var(--ink-light); border:1px solid rgba(255,255,255,.72); }
   .work-desc { font-size:.81rem; line-height:1.7; color:var(--ink-light); margin-bottom:14px; }
-  .work-big-icon { position:absolute; right:15px; bottom:13px; font-size:2.9rem; opacity:.1; pointer-events:none; line-height:1; }
   .work-video-slot { aspect-ratio:16/9; border-radius:10px; background:rgba(255,255,255,.45); border:1.5px dashed rgba(201,191,224,.47); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; color:var(--ink-light); font-size:.59rem; letter-spacing:.09em; text-transform:uppercase; overflow:hidden; position:relative; transition:border-color .3s; }
   .work-video-slot:hover { border-color:var(--lavender-deep); }
   .work-video-slot svg { width:18px; height:18px; opacity:.27; }
@@ -241,11 +313,27 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Rae <span>Carmel</span></a>
-  <div class="nav-links">
-    <a href="#skills">Skills</a>
-    <a href="#channels">Channels</a>
-    <a href="#works">Works</a>
-    <a href="#contact" class="nav-cta">Contact ↗</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#skills">Skills</a>
+      <a href="#channels">Channels</a>
+      <a href="#works">Works</a>
+      <a href="#contact" class="nav-cta">Contact ↗</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+      <!-- Sun icon (outline) — shows in light mode; rotates to moon feel in dark -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <line x1="12" y1="2" x2="12" y2="4"/>
+        <line x1="12" y1="20" x2="12" y2="22"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="2" y1="12" x2="4" y2="12"/>
+        <line x1="20" y1="12" x2="22" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
   </div>
 </nav>
 
@@ -364,13 +452,34 @@
       <div class="tools-block reveal">
         <div class="tools-title">Tools &amp; Software</div>
         <div class="tools-logos">
-          <div class="tool-logo"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#00005B"/><text x="3" y="17" font-size="10" font-weight="bold" fill="#9999FF" font-family="sans-serif">Ae</text></svg>After Effects</div>
-          <div class="tool-logo"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#000"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="2"/><line x1="12" y1="2" x2="12" y2="7" stroke="white" stroke-width="2"/><line x1="12" y1="17" x2="12" y2="22" stroke="white" stroke-width="2"/></svg>CapCut</div>
-          <div class="tool-logo"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#E91E63"/><path d="M5 12 Q9 6 12 12 Q15 18 19 12" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg>BandLab</div>
-          <div class="tool-logo"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#0000CC"/><path d="M5 17 L8 7 L11 14 L14 9 L17 17" stroke="#FFD700" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Audacity</div>
-          <div class="tool-logo"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#FF6B9D"/><circle cx="9" cy="10" r="2" fill="white"/><circle cx="15" cy="10" r="2" fill="white"/><path d="M8 15 Q12 18 16 15" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>Live2D</div>
-          <div class="tool-logo"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#00C4CC"/><text x="4" y="17" font-size="12" font-weight="bold" fill="white" font-family="sans-serif">C</text></svg>Canva</div>
-          <div class="tool-logo"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#4285F4"/><rect x="7" y="5" width="10" height="14" rx="1" fill="white"/><rect x="9" y="9" width="6" height="1.2" rx="0.6" fill="#4285F4"/><rect x="9" y="12" width="6" height="1.2" rx="0.6" fill="#4285F4"/><rect x="9" y="15" width="4" height="1.2" rx="0.6" fill="#4285F4"/></svg>Google Docs</div>
+          <div class="tool-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" alt="After Effects">
+            After Effects
+          </div>
+          <div class="tool-logo">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/capcut-icon.png" alt="CapCut"">
+            CapCut
+          </div>
+          <div class="tool-logo">
+            <img src="https://play-lh.googleusercontent.com/QhKa3YvEucCd51M0uiu4XYhYy1abr73sYb3cCXN9Uco7AY07LA4RRiCL7xSbeKjHXJA" alt="BandLab">
+            BandLab
+          </div>
+          <div class="tool-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Audacity_Logo.svg/500px-Audacity_Logo.svg.png" alt="Audacity">
+            Audacity
+          </div>
+          <div class="tool-logo">
+            <img src="https://img.icons8.com/color/512/live2d-cubism.png" alt="Live2D">
+            Live2D
+          </div>
+          <div class="tool-logo">
+            <img src="https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxo4K81Ei7WzcnqEk8W.MgwZKGOGyylNO5Zmpypx72dKW30JQijPB.R5zwcpxtBwH3OJlEQGtDjjqpeLMKnjHhi8-&format=source" alt="Canva">
+            Canva
+          </div>
+          <div class="tool-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Google_Docs_logo_%282014-2020%29.svg" alt="Google Docs">
+            Google Docs
+          </div>
         </div>
       </div>
     </div>
@@ -552,7 +661,6 @@
       <div class="work-roles"><span class="work-role">Director</span><span class="work-role">Main Vocalist</span><span class="work-role">Actor</span><span class="work-role">Lyricist</span><span class="work-role">Audio Mixer</span><span class="work-role">Main Editor</span></div>
       <p class="work-desc">A lively advertisement jingle to "Just Monika," maintaining a vibrant mood throughout. Coached non-singer teammates to deliver satisfying vocals alongside directed acting sequences.</p>
       <div class="work-video-slot"><iframe src="https://drive.google.com/file/d/1yWaWE2Bp_u1s3ySgy3TaI-PQZ6MoB8W8/preview" allowfullscreen></iframe></div>
-      <div class="work-big-icon">🎵</div>
     </div>
     <div class="work-card lavender reveal reveal-delay-1">
       <div class="work-year">2025 · Team <span class="award-badge">★ 1st Runner-Up / 25 Teams</span></div>
@@ -561,7 +669,6 @@
       <div class="work-roles"><span class="work-role">Director</span><span class="work-role">Main Vocalist</span><span class="work-role">Actor</span><span class="work-role">Lyricist</span><span class="work-role">Audio Mixer</span><span class="work-role">Main Editor</span></div>
       <p class="work-desc">A fast-paced jingle to "Family Madrigal" showcasing school services through complex scene transitions. Back-to-back award win demonstrates consistent directorial and creative leadership.</p>
       <div class="work-video-slot"><iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FYESuphsl%2Fvideos%2F1458148135255355%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe></div>
-      <div class="work-big-icon">🎬</div>
     </div>
   </div>
 
@@ -573,7 +680,6 @@
       <div class="work-roles"><span class="work-role">Director</span><span class="work-role">Singer</span><span class="work-role">Actor</span><span class="work-role">Video Editor</span></div>
       <p class="work-desc">A Japanese-vintage-style MV for an English cover translated and recorded entirely by Rae — a fully self-produced audiovisual piece.</p>
       <div class="work-video-slot"><iframe src="https://drive.google.com/file/d/1p_HzVV_OEOdEJETWOmJmvFb94XatERUi/preview" allowfullscreen></iframe></div>
-      <div class="work-big-icon">🌸</div>
     </div>
     <div class="work-card rose reveal reveal-delay-1">
       <div class="work-year">2026 · Solo</div>
@@ -582,7 +688,6 @@
       <div class="work-roles"><span class="work-role">Director</span><span class="work-role">Actor</span><span class="work-role">Video Editor</span><span class="work-role">Scriptwriter</span></div>
       <p class="work-desc">A TikTok series on Philippine deities reframed through modern, relatable perspectives — research-driven storytelling bridging mythology and contemporary life.</p>
       <div class="work-video-slot"><iframe src="https://www.tiktok.com/player/v1/7590054288794078485?&music_info=0&description=0" allow="fullscreen" title="TikTok video player"> </iframe></div>
-      <div class="work-big-icon">🌙</div>
     </div>
     <div class="work-card cream reveal reveal-delay-2">
       <div class="work-year">2026 · Solo <span class="award-badge">★ Champion</span></div>
@@ -591,7 +696,6 @@
       <div class="work-roles"><span class="work-role">Director</span><span class="work-role">Actor</span><span class="work-role">Video Editor</span><span class="work-role">Scriptwriter</span></div>
       <p class="work-desc">Champion vlog narrating the creation of a mozzarella-stick slime replica through storytelling, with layered audio and effects to maximize engagement.</p>
       <div class="work-video-slot"><iframe src="https://drive.google.com/file/d/1uo4O_LOqEG_-cLezREaivbkKAMnRBW28/preview"></iframe></div>
-      <div class="work-big-icon">✨</div>
     </div>
   </div>
 
@@ -603,7 +707,6 @@
       <div class="work-roles"><span class="work-role">Director</span><span class="work-role">Actor</span><span class="work-role">Speaker</span><span class="work-role">Video Editor</span><span class="work-role">Scriptwriter</span></div>
       <p class="work-desc">An award-winning duo podcast exploring the perks of our school library. Edited in CapCut with carefully timed captions, blending informative storytelling with a natural conversational tone.</p>
       <div class="work-video-slot"><iframe src="https://drive.google.com/file/d/1q5DzKF3EMWndGi22DDTt6Zn999d677S_/preview" width="640" height="480"></iframe></div>
-      <div class="work-big-icon">🎙️</div>
     </div>
     <div class="work-card placeholder reveal reveal-delay-1">
       <div style="font-size:2.2rem;margin-bottom:11px;opacity:.4;">✦</div>
@@ -623,13 +726,13 @@
   </div>
   <div class="contact-inner">
     <div class="reveal">
-      <p class="contact-tagline">Available for<br><strong>collaborations, commissions,</strong><br>and creative projects.</p>
+      <p class="contact-tagline">Available for <strong>collaborations, commissions,</strong> and creative projects.</p>
       <p class="contact-note">Whether you need a video editor, animator, vocal talent, or a director who can handle all of the above — let's build something together.</p>
     </div>
     <div class="social-links reveal reveal-delay-1">
       <a href="https://mail.google.com/mail/u/0/?tf=cm&fs=1&to=raecarmel.ae@gmail.com&hl=en-US" class="social-link" target="_blank" rel="noopener">
         <div class="social-link-icon sl-email"><svg viewBox="0 0 24 24" fill="white"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
-        <div class="social-link-info"><div class="social-link-name">Email</div><div class="social-link-handle">raecarmel.ae@gmail.com</div></div>
+        <div class="social-link-info"><div class="social-link-name">Email</div><div class="social-link-handle"><span class="__cf_email__" data-cfemail="542635313735263931387a3531143339353d387a373b39">raecarmel.ae@gmail.com</span></div></div>
         <div class="social-link-arrow">→</div>
       </a>
       <a href="https://www.tiktok.com/@akiyamaflower" class="social-link" target="_blank" rel="noopener">
@@ -647,23 +750,6 @@
         <div class="social-link-info"><div class="social-link-name">LinkedIn</div><div class="social-link-handle">linkedin.com/in/rae-carmel-egusquiza</div></div>
         <div class="social-link-arrow">→</div>
       </a>
-      <a href="#" class="social-link" target="_blank" rel="noopener">
-        <div class="social-link-icon sl-upwork"><svg viewBox="0 0 24 24" fill="white"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.449-5.439-5.449z"/></svg></div>
-        <div class="social-link-info"><div class="social-link-name">Upwork</div><div class="social-link-handle">Add your Upwork profile URL</div></div>
-        <div class="social-link-arrow">→</div>
-      </a>
-      <a href="#" class="social-link" target="_blank" rel="noopener">
-        <div class="social-link-icon sl-indeed">
-          <img src="https://indeed.design/static/97aaab44096aedcc0f7dfa40a27cbdf0/logo.png" 
-              alt="Indeed" 
-              style="width: 22px; height: 22px; object-fit: contain;">
-        </div>
-        <div class="social-link-info">
-          <div class="social-link-name">Indeed</div>
-          <div class="social-link-handle">View Professional Profile</div>
-        </div>
-        <div class="social-link-arrow">→</div>
-      </a>
     </div>
   </div>
 </section>
@@ -674,7 +760,7 @@
   <span>Laguna, Philippines · Open to Work</span>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const cur=document.getElementById('cursor'), ring=document.getElementById('cursorRing');
   let mx=0,my=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
@@ -720,6 +806,16 @@
 }
   const cobs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.count-up').forEach(el=>animateCount(el));cobs.unobserve(e.target);}});},{threshold:.3});
   document.querySelectorAll('.glance-grid').forEach(el=>cobs.observe(el));
+
+  // DARK MODE TOGGLE
+  const toggleBtn = document.getElementById('themeToggle');
+  const html = document.documentElement;
+  // Restore preference
+  if(localStorage.getItem('theme')==='dark') html.classList.add('dark');
+  toggleBtn.addEventListener('click',()=>{
+    html.classList.toggle('dark');
+    localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+  });
 </script>
 </body>
 </html>
