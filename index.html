@@ -36,6 +36,7 @@
   html.dark .work-role {  background: rgba(255, 255, 255, 0.1);  color: #FFF;  border-color: rgba(255, 255, 255, 0.2);  }
 
   html.dark nav { background:rgba(26,22,37,.95); border-bottom-color:rgba(74,63,107,.35); }
+  html.dark .nav-links { background: rgba(26,22,37,.97); border-bottom-color: rgba(74,63,107,.4); }
   html.dark .hero-bg { background: radial-gradient(ellipse 60% 50% at 80% 30%,rgba(74,63,107,.35),transparent), radial-gradient(ellipse 50% 60% at 20% 70%,rgba(122,79,88,.25),transparent), var(--cream); }
   html.dark .glance-section { background:#120E1D; }
   html.dark .glance-grid { background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.06); }
@@ -46,7 +47,7 @@
   html.dark .platform-name { color:var(--ink-light); }
   html.dark .mini-stat-num { color:var(--ink); }
   html.dark .video-slot { background:var(--lavender-light); border-color:rgba(74,63,107,.6); }
-  html.dark .work-video-slot { background:rgba(255,255,255,.06); border-color:rgba(74,63,107,.5); }
+  html.dark .work-video-slot { background:rgba(255,255,255,.06); }
   html.dark .work-card.cream { background:linear-gradient(135deg, #ece8e121 50%, #ffffff24); border-color: #dfd7ca59; }
   html.dark .work-card.placeholder { background:var(--cream-dark); border-color:rgba(74,63,107,.4); }
   html.dark .skills-right-box { background:linear-gradient(135deg,rgba(46,37,69,.8),rgba(61,40,48,.7)); border-color:rgba(74,63,107,.4); }
@@ -93,10 +94,10 @@
   .cursor { width:12px; height:12px; background:var(--rose-deep); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:width .3s,height .3s,background .3s; mix-blend-mode:multiply; }
   .cursor-ring { width:36px; height:36px; border:1.5px solid var(--lavender-deep); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:left .06s,top .06s,width .3s,height .3s,border-color .3s; opacity:.7; }
 
-  nav { position:fixed; top:0; left:0; right:0; z-index:200; padding:16px 60px; display:flex; justify-content:space-between; align-items:center; background:rgba(250, 246, 240, 0.75); backdrop-filter:blur(10px); border-bottom:1px solid rgba(201, 191, 224, 0.612); }
+  nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:16px 60px; display:flex; justify-content:space-between; align-items:center; background:rgba(250, 246, 240, 0.75); backdrop-filter:blur(10px); border-bottom:1px solid rgba(201, 191, 224, 0.612); }
   .nav-logo { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-style:italic; color:var(--ink); text-decoration:none; }
   .nav-logo span { color:var(--rose-deep); }
-  .nav-links { display:flex; gap:28px; align-items:center; }
+  .nav-links { display:flex; gap:28px; align-items:center; z-index: 99;}
   .nav-links a { text-decoration:none; font-size:0.78rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-light); transition:color .3s; position:relative; }
   .nav-links a::after { content:''; position:absolute; bottom:-3px; left:0; width:0; height:1px; background:var(--rose-deep); transition:width .3s; }
   .nav-links a:hover { color:var(--rose-deep); }
@@ -105,6 +106,24 @@
   .nav-cta:hover { background:var(--rose); transform:translateY(-1px); }
   .nav-cta::after { display:none !important; }
   .nav-right { display:flex; align-items:center; gap:14px; }
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    color:var(--ink-light);
+  }
+
+  .menu-toggle .bar {
+    width: 20px;
+    height: 2px;
+    z-index: 100;
+    background-color: var(--ink);
+    transition: 0.3s;
+  }
 
   /* HERO */
   .hero { min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden; padding:120px 60px 80px; }
@@ -115,9 +134,9 @@
   @keyframes spin { to{transform:rotate(360deg);} }
   .hero-content { max-width:700px; }
   .hero-layout { display:flex; align-items:center; justify-content:space-between; gap:40px; width:100%; position:relative; z-index:1; }
-  .hero-content { max-width:600px; }
+  .hero-content { max-width:700px; }
   .hero-image-wrap { flex-shrink:0; }
-  .hero-portrait { width:400px; height:400px; margin-right: 200px; object-fit:cover; border-radius:50%; border:3px solid var(--rose-light); box-shadow:0 12px 40px rgba(185,122,136,.25); display:block; }
+  .hero-portrait { width:400px; height:400px; margin-right: 100px; object-fit:cover; border-radius:50%; border:3px solid var(--rose-light); box-shadow:0 12px 40px rgba(185,122,136,.25); display:block; }
 
   .hero-ofo { display:inline-flex; align-items:center; gap:10px; padding:11px 22px; border-radius:30px; background:rgba(185,122,136,.1); border:1.5px solid var(--rose-deep); margin-bottom:28px; animation:fadeUp .8s both, ofo-pulse 2.5s 1s ease infinite; }
   @keyframes ofo-pulse { 0%,100%{box-shadow:0 0 0 0 rgba(185,122,136,.3);} 50%{box-shadow:0 0 0 9px rgba(185,122,136,0);} }
@@ -127,7 +146,7 @@
 
   .hero-name { font-family:'Cormorant Garamond',serif; font-size:7rem; font-weight:300; line-height:.92; animation:fadeUp .8s .12s both; }
   .hero-name em { font-style:italic; color:var(--rose-deep); display:block; }
-  .hero-sub { margin-top:22px; font-size:1.1rem; line-height:1.8; color:var(--ink-light); max-width:525px; animation:fadeUp .8s .22s both; }
+  .hero-sub { margin-top:22px; font-size:1.1rem; line-height:1.8; color:var(--ink-light); max-width:650px; animation:fadeUp .8s .22s both; }
   .hero-sub strong { color:var(--lavender-deep); font-weight:500; }
   .hero-meta { display:flex; align-items:center; flex-wrap:wrap; gap:14px; margin-top:16px; animation:fadeUp .8s .3s both; }
   .hero-meta-item { display:flex; align-items:center; gap:6px; font-size:1rem; color:var(--ink-light); font-style: italic; }
@@ -145,7 +164,7 @@
 
   section { padding:92px 60px; position:relative; }
   .section-header { display:flex; align-items:baseline; gap:18px; margin-bottom:52px; }
-  .section-title { font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:400; color:var(--ink); line-height:1; }
+  .section-title { font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:400; color:var(--ink); line-height:1; scroll-margin-top: 100px;}
   .section-title em { font-style:italic; color:var(--lavender-deep); }
   .section-line { flex:1; height:1px; background:linear-gradient(to right,var(--lavender),transparent); max-width:200px; }
   .divider { height:1px; background:linear-gradient(to right,transparent,var(--lavender),var(--rose-light),transparent); opacity:.55; margin:0 60px; }
@@ -175,7 +194,7 @@
   .skill-pill { font-size:.85rem; padding:7px 14px; border-radius:40px; background:var(--cream); border:1px solid var(--cream-dark); color:var(--ink); transition:all .3s; display:flex; align-items:center; gap:6px; }
   .skill-pill:hover { background:var(--lavender-light); border-color:var(--lavender); transform:translateY(-2px); box-shadow:0 5px 15px rgba(158,142,196,.13); }
   .pill-dot { width:5px; height:5px; border-radius:50%; flex-shrink:0; }
-  .tools-block { margin-top:5px; }
+  .tools-block { margin-top:30px; }
   .tools-title { font-weight: 550; font-size:1rem; letter-spacing:.2em; text-transform:uppercase; color:var(--lavender-deep); margin-bottom:50px; justify-content:center; display:flex; align-items:center; gap:10px; }
   .tools-title::before { content:''; flex:1; height:1px; background:var(--lavender-light); }
   .tools-title::after { content:''; flex:1; height:1px; background:var(--lavender-light); }
@@ -192,8 +211,8 @@
   .loc-box { background:var(--cream); border-radius:16px; padding:20px 20px; border:1px solid var(--cream-dark); display:flex; align-items:center; gap:13px; margin-bottom:20px; }
   .loc-box svg { width:26px; height:26px; flex-shrink:0; opacity:.4; }
   .offers-box { background:var(--cream); border-radius:16px; padding:20px 20px; border:1px solid var(--cream-dark); }
-  .offers-title { font-size:1rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-light); margin-bottom:12px; }
-  .offer-item { display:flex; align-items:flex-start; gap:9px; font-size:.9rem; color:var(--ink-light); line-height:1.55; margin-bottom:9px; }
+  .offers-title { font-size:1rem; font-weight: 600; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-light); margin-bottom:12px; }
+  .offer-item { display:flex; align-items:flex-start; gap:10px; font-size:.9rem; color:var(--ink-light); line-height:1.3; margin-bottom:9px; }
   .offer-item:last-child { margin-bottom:0; }
   .offer-item span { font-size:1rem; margin-top:1px; flex-shrink:0; }
 
@@ -259,10 +278,11 @@
   .work-roles { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
   .work-role { font-size:.85rem; padding:3px 9px; border-radius:8px; background:rgba(255,255,255,.55); color:var(--ink-light); border:1px solid rgba(255,255,255,.72); }
   .work-desc { font-size:.9rem; line-height:1.7; color:var(--ink-light); margin-bottom:14px; }
-  .work-video-slot { aspect-ratio:16/9; border-radius:10px; background:rgba(255,255,255,.45); border:1.5px dashed rgba(201,191,224,.47); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; color:var(--ink-light); font-size:.59rem; letter-spacing:.09em; text-transform:uppercase; overflow:hidden; position:relative; transition:border-color .3s; }
+  .work-video-slot { aspect-ratio:16/9; border-radius:10px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; color:var(--ink-light); font-size:.59rem; letter-spacing:.09em; text-transform:uppercase; overflow:hidden; position:relative; transition:border-color .3s; }
   .work-video-slot:hover { border-color:var(--lavender-deep); }
   .work-video-slot svg { width:18px; height:18px; opacity:.27; }
   .work-video-slot iframe { position:absolute; inset:0; width:100%; height:100%; border:none; border-radius:10px; }
+  .work-video-slot img { margin-top: 10px;border-radius:10px; }
 
   /* CONTACT */
   .contact { background:var(--ink); color:var(--cream); }
@@ -296,20 +316,56 @@
   .reveal-delay-3 { transition-delay:.3s; }
 
   @media(max-width:860px){
-    nav{padding:13px 20px;} .nav-links{gap:14px;}
-    section,.glance-section{padding:60px 20px;}
-    .hero{padding:100px 20px 60px;}
+    nav{padding:13px 20px; z-index: 1000}
+    .nav-cta { padding:9px 18px; font-size:.8rem; }
+    section,.glance-section{padding: 35px 15px;}
+    .section-header{margin-bottom:25px;}
+    .hero{width: 100%; padding: 100px 15px;}
     .hero-d1,.hero-d2,.hero-d3{display:none;}
     .hero-layout { flex-direction:column-reverse; align-items:center; text-align:center; }
     .hero-portrait { width:180px; height:180px; margin-right: 0;}
     .hero-content { max-width:100%; }
-    .hero-chips, .hero-btns, .hero-meta { justify-content:center; }
+    .hero-chips, .hero-meta { justify-content:center; }
+    .hero-btns { justify-content:center;}
+    .btn-primary, .btn-secondary { padding:10px 22px; font-size:.77rem; }
     .glance-grid{grid-template-columns:1fr 1fr;}
-    .skills-cols,.works-featured,.works-row,.works-bottom,.contact-inner{grid-template-columns:1fr;gap:24px;}
-    .divider{margin:0 20px;}
+    .lang-bar { width:25px; height:7px; border-radius:5px; }
+    .skills-cols,.works-featured,.works-row,.works-bottom,.contact-inner{grid-template-columns:1fr;gap:24px;padding: 15px}
+    .skills-cols, .contact-inner { width: 100%; display: flex;  flex-direction: column; gap: 20px; overflow: hidden;  }
+    .social-links { grid-template-columns: 1fr; }
+    .social-link { width: 100%; box-sizing: border-box; }
+    .divider{margin:0 12px;}
     .footer-strip{padding:16px 20px;flex-direction:column;text-align:center;}
     .video-slots{grid-template-columns:1fr;}
-    .hero-btns{flex-direction:column;}
+    .menu-toggle { display: flex; padding: 6px; color:var(--ink-light); }
+
+    .nav-links {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: var(--cream);
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 25px;
+      padding: 20px 0;
+      z-index: 999;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid var(--cream-dark);
+      transform: translateY(-110%);
+      transition: transform 0.5s ease-in-out, visibility 0s linear 0.5s;
+      visibility: hidden;
+      height: auto;
+    }
+    .nav-links a { border-bottom: 1px solid var(--cream-dark); font-size:.8rem; width: 100%; padding: 0px 0px 20px 0px; text-align: center; }
+    .nav-links.active { transform: translateY(0); z-index: 999; visibility: visible; transition: transform 0.5s ease-in-out; }
+    .nav-links .nav-cta { font-size:.75rem; width: 100%; padding: 15px 0; text-align: center; }
+
+    .menu-toggle.active .bar { display: none; }
+    .menu-toggle .x-icon { display: none; }
+    .menu-toggle.active .x-icon { display: block; color: var(--ink); font-size: 1.2rem; line-height: 1; }
   }
 </style>
 </head>
@@ -318,7 +374,7 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- NAV -->
+<!-- NAVIGATION BAR -->
 <nav>
   <a href="#" class="nav-logo">Rae <span>Carmel</span></a>
   <div class="nav-right">
@@ -341,8 +397,21 @@
         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
       </svg>
     </button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="x-icon">✕</span>
+    </button>
   </div>
 </nav>
+
+<div class="nav-links" id="navLinks">
+  <a href="#skills">Skills</a>
+  <a href="#channels">Channels</a>
+  <a href="#works">Works</a>
+  <a href="#contact" class="nav-cta">Contact ↗</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -350,9 +419,10 @@
   <div class="hero-d1"></div><div class="hero-d2"></div><div class="hero-d3"></div>
   <div class="hero-layout">
     <div class="hero-content">
-      <div class="hero-ofo"><div class="ofo-dot"></div><span class="ofo-text">Open for Opportunities</span></div>
+      <a href="#contact" class="hero-ofo" style="text-decoration: none;"><div class="ofo-dot"></div><span class="ofo-text">Open for Work</span></a>
       <h1 class="hero-name">Rae<em>Carmel</em></h1>
-      <p class="hero-sub">Multimedia producer and content creator: <strong>video editor</strong>, <strong>animator</strong>, <strong>voice actor</strong>, <strong>director</strong>, <strong>lyricist</strong>, and <strong>scriptwriter</strong>. Aiming to produce videos that the audience will enjoy.</p>
+      <p class="hero-sub">Hi, I’m Rae — a <strong>video editor</strong> specializing in engaging <strong>short-form</strong> & <strong>long-form</strong> content that captures the attention of viewers and keeps them watching. I help brands turn ideas into scroll-stopping videos for <strong>TikTok</strong> and <strong>YouTube</strong>. </p>
+      <p class="hero-sub">I am also a multimedia producer specializing as a <strong>Video Editor</strong>, <strong>Animator</strong>, and <strong>Scriptwriter</strong>, aiming to produce videos optimized for <strong>audience retention, reach, and engagement</strong>.</p>
       <div class="hero-meta">
         <div class="hero-meta-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -360,7 +430,7 @@
         </div>
       </div>
       <div class="hero-chips">
-        <span class="chip">Animation</span><span class="chip">Video Editing</span><span class="chip">Vocal Work</span>
+        <span class="chip">Video Editing</span><span class="chip">Animation</span><span class="chip">Voice Acting</span>
         <span class="chip">Direction</span><span class="chip">Lyric Writing</span><span class="chip">Scriptwriting</span><span class="chip">Audio Mixing</span>
       </div>
       <div class="hero-btns">
@@ -382,7 +452,7 @@
     <h2 class="section-title">At a <em>Glance</em></h2>
     <div class="section-line"></div>
   </div>
-  <p class="glance-intro">Numbers reached after 7+ years of consistent content creation.</p>
+  <p class="glance-intro">Numbers reached after <strong style="color: var(--rose)">7+ years</strong> of consistent content creation.</p>
   <div class="glance-grid">
     <div class="glance-item" data-label="views">
       <div class="glance-num"><span class="count-up" data-target="4.8" data-suffix="M+">0</span></div>
@@ -493,11 +563,14 @@
         </div>
       </div>
       <div class="offers-box">
-        <div class="offers-title">What I offer</div>
-        <div class="offer-item"><span style="color:var(--rose-deep);">✦</span>Full-pipeline video production from script to final edit</div>
-        <div class="offer-item"><span style="color:var(--lavender-deep);">✦</span>2D animation and motion graphics for social media</div>
-        <div class="offer-item"><span style="color:var(--gold);">✦</span>Vocal performance, dubbing, and original lyric &amp; script writing</div>
-        <div class="offer-item"><span style="color:var(--rose-deep);">✦</span>Team directing and creative leadership for group projects</div>
+        <div class="offers-title">Core Skills & Services</div>
+        <div class="offer-item"><span style="color:var(--rose-deep);">✦</span>Video Editing (Short-form & Long-form Content)</div>
+        <div class="offer-item"><span style="color:var(--lavender-deep);">✦</span>Subtitles & Captions</div>
+        <div class="offer-item"><span style="color:var(--gold);">✦</span>Storytelling & Narrative Flow (Scriptwriting)</div>
+        <div class="offer-item"><span style="color:var(--rose-deep);">✦</span>Sound Design, Audio Mixing, & Voice Acting</div>
+        <div class="offer-item"><span style="color:var(--lavender-deep);">✦</span>Motion Graphics & Text Animation</div>
+        <div class="offer-item"><span style="color:var(--gold);">✦</span>Social Media Content Optimization (TikTok, YouTube)</div>
+        <div class="offer-item"><span style="color:var(--rose-deep);">✦</span>Team Direction & Deadline Management</div>
       </div>
     </div>
   </div>
@@ -587,7 +660,7 @@
       <div class="channel-period">April 2025 – Present · Solo Online Persona</div>
       <div class="channel-vc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.89L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>20 videos made</div>
       <div class="channel-roles"><span class="role-tag">Video Editor</span><span class="role-tag">Animator</span><span class="role-tag">Vocalist</span><span class="role-tag">Lyricist</span></div>
-      <p class="channel-desc">Trending animations and anime edits set to popular songs, voiced as distinct characters. Known for expressive motion editing and consistent viral reach.</p>
+      <p class="channel-desc">The channel consists of short-form and long-form trending animations, color-coded lyric videos, translated lyrics to music videos, and anime edits set to popular songs, voiced as distinct characters. Akipella is known for expressive motion editing and consistent viral reach.</p>
       <div class="platform-stats">
         <div class="platform-block tt-block">
           <div class="platform-header"><div class="platform-logo tt-logo"><svg viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg></div><span class="platform-name">TikTok</span></div>
@@ -624,7 +697,7 @@
       <div class="channel-period">April 2025 – Present · Fandub Team</div>
       <div class="channel-vc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.89L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>37 videos made</div>
       <div class="channel-roles"><span class="role-tag">Owner</span><span class="role-tag">Manager</span><span class="role-tag">Video Editor</span><span class="role-tag">Animator</span><span class="role-tag">Audio Mixer</span><span class="role-tag">Vocalist</span></div>
-      <p class="channel-desc">One of the top well-known Project Sekai fandub channels. Produces 2D music videos with dynamic character sprites, complex camera movements, and rich visual effects alongside skits and original audio mixes.</p>
+      <p class="channel-desc">This project is one of the top well-known Project Sekai fandub channels with over 150 staff members and over 1k applications. It produces short-form and long-form 2D music videos with dynamic character sprites, complex camera movements, and rich visual effects alongside skits and original audio mixes.</p>
       <div class="platform-stats">
         <div class="platform-block tt-block">
           <div class="platform-header"><div class="platform-logo tt-logo"><svg viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg></div><span class="platform-name">TikTok</span></div>
@@ -632,7 +705,7 @@
         </div>
         <div class="platform-block yt-block">
           <div class="platform-header"><div class="platform-logo yt-logo"><svg viewBox="0 0 24 24" fill="white"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.52V8.48L15.5 12l-5.75 3.52z"/></svg></div><span class="platform-name">YouTube</span></div>
-          <div class="platform-mini-stats"><div><div class="mini-stat-num">700K+</div><div class="mini-stat-label">Total Views</div></div><div><div class="mini-stat-num">305K+</div><div class="mini-stat-label">Top Short</div></div><div><div class="mini-stat-num">4K+</div><div class="mini-stat-label">Subscribers</div></div></div>
+          <div class="platform-mini-stats"><div><div class="mini-stat-num">700K+</div><div class="mini-stat-label">Total Views</div></div><div><div class="mini-stat-num">305K+</div><div class="mini-stat-label">Top Short</div></div><div><div class="mini-stat-num">4.1K+</div><div class="mini-stat-label">Subscribers</div></div></div>
         </div>
       </div>
       <div class="video-embed-area"><div class="video-embed-label">Sample Videos</div><div class="video-slots">
@@ -660,7 +733,7 @@
       <div class="channel-period">February 2021 – June 2023 · Former Solo Channel</div>
       <div class="channel-vc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.89L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>69 videos over two years</div>
       <div class="channel-roles"><span class="role-tag">Video Editor</span><span class="role-tag">Animator</span><span class="role-tag">Audio Mixer</span></div>
-      <p class="channel-desc">The creative origin story. Utilized Gacha Life to produce animation memes in a 2D music video format — uploading nearly weekly across two years. The foundation of all future creative work.</p>
+      <p class="channel-desc">The channel where everything started, utilizing Gacha Life to produce animation memes in a 2D music video format — uploading almost weekly across two years. Among the videos, 23 were multi-editor projects (MEPS) which gets compiled with other creators for collaboration.</p>
       <div class="platform-stats">
         <div class="platform-block yt-block">
           <div class="platform-header"><div class="platform-logo yt-logo"><svg viewBox="0 0 24 24" fill="white"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.52V8.48L15.5 12l-5.75 3.52z"/></svg></div><span class="platform-name">YouTube</span></div>
@@ -688,63 +761,74 @@
 
   <div class="works-featured">
     <div class="work-card rose reveal">
-      <div class="work-year">2024 · Team <span class="award-badge">★ 1st Runner-Up / 25 Teams</span></div>
-      <div class="work-title">ABM Jingle Music Video</div>
+      <div class="work-year">September 2024 · Team <span class="award-badge">★ 2nd Place / 45 Teams</span></div>
+      <div class="work-title">Jive & Jingle: English-Fest Jingle Strand Advertisement 2024</div>
       <div class="work-type">Advertisement · Music Direction</div>
       <div class="work-roles"><span class="work-role">Director</span><span class="work-role">Main Vocalist</span><span class="work-role">Actor</span><span class="work-role">Lyricist</span><span class="work-role">Audio Mixer</span><span class="work-role">Main Editor</span></div>
-      <p class="work-desc">A lively advertisement jingle to "Just Monika," maintaining a vibrant mood throughout. Coached non-singer teammates to deliver satisfying vocals alongside directed acting sequences.</p>
-      <div class="work-video-slot"><iframe src="https://drive.google.com/file/d/1yWaWE2Bp_u1s3ySgy3TaI-PQZ6MoB8W8/preview" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+      <p class="work-desc">A lively advertisement jingle to "Just Monika," maintaining a vibrant mood and story throughout for the audience to enjoy as we advertise ABM. I coached non-singer teammates to deliver satisfying vocals alongside directed acting sequences.</p>
+      <div class="work-video-slot">
+        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FYESuphsl%2Fvideos%2F819661753368093%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+      </div>
+      <div class="work-video-slot" style="background: none;">
+        <img src="https://scontent.fmnl30-3.fna.fbcdn.net/v/t39.30808-6/484075156_682942824396285_4038516545962192280_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeGadQT80XWrS56uGinj_VELo2NYWC_bDDujY1hYL9sMO_7LhST76YBGBpINAjCth9RUCiAbGCeudNOUKouFVDeB&_nc_ohc=8XVztf5VcLYQ7kNvwHn0aTH&_nc_oc=Adr0aAzbpZBBH3fulfbOAhHA6kxhUnonoNVjFNCFST89vy_AtrVckUQW3pbjlsQ0WBY&_nc_zt=23&_nc_ht=scontent.fmnl30-3.fna&_nc_gid=DzbcHxUMINRGG_avG_dxWg&_nc_ss=7a3a8&oh=00_Af2KT1ZXyDSBDDrtU8lQMj5KYIz3D3yoydYglIuykF-hdQ&oe=69D6B280" style="border:none;overflow:hidden" frameborder="0" allowfullscreen="true"></iframe>
+      </div>
     </div>
     <div class="work-card lavender reveal reveal-delay-1">
-      <div class="work-year">2025 · Team <span class="award-badge">★ 1st Runner-Up / 25 Teams</span></div>
-      <div class="work-title">ABM Jingle Music Video</div>
+      <div class="work-year">September 2025 · Team <span class="award-badge">★ 3rd Place / 49 Teams</span></div>
+      <div class="work-title">Once Upon a Campus: Jingle Advertisement Competition 2025</div>
       <div class="work-type">Advertisement · Complex Editing</div>
       <div class="work-roles"><span class="work-role">Director</span><span class="work-role">Main Vocalist</span><span class="work-role">Actor</span><span class="work-role">Lyricist</span><span class="work-role">Audio Mixer</span><span class="work-role">Main Editor</span></div>
-      <p class="work-desc">A fast-paced jingle to "Family Madrigal" showcasing school services through complex scene transitions. Back-to-back award win demonstrates consistent directorial and creative leadership.</p>
+      <p class="work-desc">A fast-paced jingle to "Family Madrigal" showcasing the school's services through complex scene transitions. The back-to-back award win demonstrates consistent directorial and creative leadership with an impactful storytelling and audiences engaged.</p>
       <div class="work-video-slot"><iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FYESuphsl%2Fvideos%2F1458148135255355%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe></div>
+      <div class="work-video-slot" style="background: none;">
+        <img src="https://scontent.fmnl30-3.fna.fbcdn.net/v/t39.30808-6/557296444_837156758974890_8105798395451497131_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeGRBhcQNbBzaRZZCuFd7yTK8jG6UQ0fH9HyMbpRDR8f0TLKmWlFNuZW5yQdYTF9HIqi47vhLgCFgxy3ZAwO2YN6&_nc_ohc=yVMflZehRz8Q7kNvwG_gP3j&_nc_oc=Adq9S7u5JJ5UY--hf9uAC0JXk3lmLnTjI7zwiQ0nxbtxMA0HCNaXGJKEhttwiVla6ew&_nc_zt=23&_nc_ht=scontent.fmnl30-3.fna&_nc_gid=nuqwcjQGqyg9VqreanQIEA&_nc_ss=7a3a8&oh=00_Af0g6o16gfymDx62_XD_ytqnHd93YCnkowkT5wMek8LUCA&oe=69D6A349" style="border:none;overflow:hidden" frameborder="0" allowfullscreen="true"></iframe>
+      </div>
     </div>
   </div>
 
   <div class="works-row">
     <div class="work-card cream reveal">
-      <div class="work-year">2024 · Solo</div>
+      <div class="work-year">November 2024 · Solo</div>
       <div class="work-title">Vintage Music Video</div>
       <div class="work-type">Narrative · Self-Produced</div>
       <div class="work-roles"><span class="work-role">Director</span><span class="work-role">Singer</span><span class="work-role">Actor</span><span class="work-role">Video Editor</span></div>
-      <p class="work-desc">A Japanese-vintage-style MV for an English cover translated, recorded, produced, and edited entirely by myself.</p>
+      <p class="work-desc">A Japanese-vintage-style music video with captions for an English cover that's edited, translated, recorded, produced, and color graded entirely by myself.</p>
       <div class="work-video-slot"><iframe src="https://drive.google.com/file/d/1p_HzVV_OEOdEJETWOmJmvFb94XatERUi/preview" allow="autoplay; autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe></div>
     </div>
     <div class="work-card rose reveal reveal-delay-1">
-      <div class="work-year">2026 · Solo
+      <div class="work-year">November 2025 · Duo <span class="award-badge">★ 1st Runner Up</span></div>
+      <div class="work-title">Library Podcast</div>
+      <div class="work-type">Podcast · Documentary-style</div>
+      <div class="work-roles"><span class="work-role">Director</span><span class="work-role">Actor</span><span class="work-role">Speaker</span><span class="work-role">Video Editor</span><span class="work-role">Scriptwriter</span></div>
+      <p class="work-desc">An award-winning duo podcast exploring the perks of our school library, practicing storytelling and editing techniques. Edited in CapCut with carefully timed captions, blending informative storytelling with a natural conversational tone.</p>
+      <div class="work-video-slot"><iframe src="https://drive.google.com/file/d/1q5DzKF3EMWndGi22DDTt6Zn999d677S_/preview" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe></div>
+    </div>
+    <div class="work-card cream reveal reveal-delay-2">
+      <div class="work-year">January 2026 · Solo
         <a href="https://www.tiktok.com/@raekarumeru" target="_blank" rel="noopener" class="award-badge" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
           <svg viewBox="0 0 24 24" fill="currentColor" style="width:12px; height:12px;"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1 .05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.04-.1z"/></svg>
           View Series <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
       <div class="work-title">Philippine Mythology Series</div>
-      <div class="work-type">Narration · TikTok Series</div>
+      <div class="work-type">Narration · Short-Form TikTok Series</div>
       <div class="work-roles"><span class="work-role">Director</span><span class="work-role">Actor</span><span class="work-role">Video Editor</span><span class="work-role">Scriptwriter</span></div>
-      <p class="work-desc"> A TikTok series on Philippine mythology series' through each deities' perspectives. The use of sound effects, color grading, and script writing further enhanced the viewing experienced.</p>
+      <p class="work-desc"> A TikTok series on Philippine mythology series' through each deities' perspectives that's relatable to modern audiences. The use of sound effects, color grading, captions, and script writing further enhanced the viewing experience.</p>
       <div class="work-video-slot"><iframe src="https://www.tiktok.com/player/v1/7590054288794078485?&music_info=0&description=0" allow="fullscreen" title="TikTok video player"> </iframe></div>
-    </div>
-    <div class="work-card cream reveal reveal-delay-2">
-      <div class="work-year">2025 · Duo <span class="award-badge">★ 1st Runner Up</span></div>
-      <div class="work-title">Library Podcast</div>
-      <div class="work-type">Podcast · Documentary-style</div>
-      <div class="work-roles"><span class="work-role">Director</span><span class="work-role">Actor</span><span class="work-role">Speaker</span><span class="work-role">Video Editor</span><span class="work-role">Scriptwriter</span></div>
-      <p class="work-desc">An award-winning duo podcast exploring the perks of our school library. Edited in CapCut with carefully timed captions, blending informative storytelling with a natural conversational tone.</p>
-      <div class="work-video-slot"><iframe src="https://drive.google.com/file/d/1q5DzKF3EMWndGi22DDTt6Zn999d677S_/preview" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe></div>
     </div>
   </div>
 
   <div class="works-bottom">
     <div class="work-card lavender reveal">
-      <div class="work-year">2026 · Solo <span class="award-badge">★ Champion</span></div>
+      <div class="work-year">February 2026 · Solo <span class="award-badge">★ Champion</span></div>
       <div class="work-title">Mozzarella Slime Vlog</div>
       <div class="work-type">Vlog · Storytelling · How-to</div>
       <div class="work-roles"><span class="work-role">Director</span><span class="work-role">Actor</span><span class="work-role">Video Editor</span><span class="work-role">Scriptwriter</span></div>
-      <p class="work-desc">Champion vlog narrating the creation of a mozzarella-stick slime replica through storytelling, with layered audio and effects to maximize engagement.</p>
+      <p class="work-desc">Champion vlog narrating the creation of a mozzarella-stick slime replica through storytelling, with subtitles, transitions, layered audio, and effects to maximize engagement and match current vlog trends.</p>
       <div class="work-video-slot" style="aspect-ratio:9/16; width: 250px; height: auto; margin:0 auto;"><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F3767889293507192%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe></div>
+      <div class="work-video-slot" style="background: none;">
+        <img src="https://scontent.fmnl30-1.fna.fbcdn.net/v/t39.30808-6/640912800_1361309209373677_6980007448192125001_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=13d280&_nc_eui2=AeGPz9A4QUaK4yPpjGbXv26vrgg6DxlMVJuuCDoPGUxUm9UXHhay-YH2pHpv2m6kuThBbzfgqnT1bhrIwCaTjCcy&_nc_ohc=6ILuX7E5-JEQ7kNvwH3G7FC&_nc_oc=AdqHS7E6KMwGKU-M-qqse4DPDH1zCJGEyHaJpJWw5qEkDERw7CRw1PeJb2a5c-Sr0J4&_nc_zt=23&_nc_ht=scontent.fmnl30-1.fna&_nc_gid=TeZ6RNWQJKW-xfV-FHhi6g&_nc_ss=7a3a8&oh=00_Af3JAIEPBvLTz6ihZqHCd-27dRpRWi868M1b_Zp2K4Ossg&oe=69D6A526" style="border:none;overflow:hidden" frameborder="0" allowfullscreen="true"></iframe>
+      </div>
     </div>
     <div class="work-card placeholder reveal reveal-delay-1">
       <div style="font-size:2.2rem;margin-bottom:11px;opacity:.4;">✦</div>
@@ -759,18 +843,23 @@
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="section-header">
-    <h2 class="section-title">Get in <em>Touch</em></h2>
+    <h2 class="section-title">Let's work <em>together</em>!</h2>
     <div class="section-line"></div>
   </div>
   <div class="contact-inner">
     <div class="reveal">
-      <p class="contact-tagline">Available for <strong>collaborations, commissions,</strong> and creative projects.</p>
+      <p class="contact-tagline">I'm open to <strong>freelance projects, collaborations,</strong> and commissions.</p>
       <p class="contact-note">Whether you need a video editor, animator, vocal talent, or a director who can handle all of the above — let's build something together.</p>
     </div>
     <div class="social-links reveal reveal-delay-1">
       <a href="https://mail.google.com/mail/u/0/?tf=cm&fs=1&to=raecarmel.ae@gmail.com&hl=en-US" class="social-link" target="_blank" rel="noopener">
         <div class="social-link-icon sl-email"><svg viewBox="0 0 24 24" fill="white"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
         <div class="social-link-info"><div class="social-link-name">Email</div><div class="social-link-handle"><span class="__cf_email__" data-cfemail="542635313735263931387a3531143339353d387a373b39">raecarmel.ae@gmail.com</span></div></div>
+        <div class="social-link-arrow">→</div>
+      </a>
+      <a href="https://www.linkedin.com/in/rae-carmel-egusquiza/" class="social-link" target="_blank" rel="noopener">
+        <div class="social-link-icon sl-linkedin"><svg viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+        <div class="social-link-info"><div class="social-link-name">LinkedIn</div><div class="social-link-handle">linkedin.com/in/rae-carmel-egusquiza</div></div>
         <div class="social-link-arrow">→</div>
       </a>
       <a href="https://www.tiktok.com/@akiyamaflower" class="social-link" target="_blank" rel="noopener">
@@ -781,11 +870,6 @@
       <a href="https://www.youtube.com/@akipella" class="social-link" target="_blank" rel="noopener">
         <div class="social-link-icon sl-youtube"><svg viewBox="0 0 24 24" fill="white"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.52V8.48L15.5 12l-5.75 3.52z"/></svg></div>
         <div class="social-link-info"><div class="social-link-name">YouTube — akipella (@akipella)</div><div class="social-link-handle">720+ subscribers · 20 videos</div></div>
-        <div class="social-link-arrow">→</div>
-      </a>
-      <a href="https://www.linkedin.com/in/rae-carmel-egusquiza/" class="social-link" target="_blank" rel="noopener">
-        <div class="social-link-icon sl-linkedin"><svg viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
-        <div class="social-link-info"><div class="social-link-name">LinkedIn</div><div class="social-link-handle">linkedin.com/in/rae-carmel-egusquiza</div></div>
         <div class="social-link-arrow">→</div>
       </a>
     </div>
@@ -847,6 +931,23 @@
   toggleBtn.addEventListener('click',()=>{
     html.classList.toggle('dark');
     localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+  });
+
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  // Toggle Menu
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+
+  // Close menu when a link is clicked
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
   });
 </script>
 </body>
