@@ -164,7 +164,7 @@
 
   section { padding:92px 60px; position:relative; }
   .section-header { display:flex; align-items:baseline; gap:18px; margin-bottom:52px; }
-  .section-title { font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:400; color:var(--ink); line-height:1; scroll-margin-top: 100px;}
+  .section-title { font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:400; color:var(--ink); line-height:1;}
   .section-title em { font-style:italic; color:var(--lavender-deep); }
   .section-line { flex:1; height:1px; background:linear-gradient(to right,var(--lavender),transparent); max-width:200px; }
   .divider { height:1px; background:linear-gradient(to right,transparent,var(--lavender),var(--rose-light),transparent); opacity:.55; margin:0 60px; }
@@ -184,7 +184,7 @@
   .glance-label strong { color:rgba(250,246,240,.72); display:block; font-weight:400; font-size:.9rem; letter-spacing:0; text-transform:none; margin-bottom:2px; }
 
   /* SKILLS */
-  .skills-section { background:var(--white); padding-bottom: 50px;}
+  .skills-section { background:var(--white); padding-bottom: 50px; scroll-margin-top: 50px;}
   .skills-cols { display:grid; grid-template-columns:1fr 1fr; gap:56px; }
   .skills-intro { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-style:italic; line-height:1.2; color:var(--ink-light); margin-bottom:30px; border-left:3px solid var(--rose); padding-left:20px; }
   .skill-category { margin-bottom:24px; }
@@ -217,7 +217,7 @@
   .offer-item span { font-size:1rem; margin-top:1px; flex-shrink:0; }
 
   /* CHANNELS */
-  .channels { background:var(--cream); }
+  .channels { background:var(--cream); scroll-margin-top: 50px; }
   .channels-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(310px,1fr)); gap:22px; }
   .channel-card { background:var(--white); border-radius:24px; padding:28px; border:1px solid var(--cream-dark); position:relative; overflow:hidden; transition:transform .4s,box-shadow .4s; }
   .channel-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(to right,var(--rose),var(--lavender)); transform:scaleX(0); transform-origin:left; transition:transform .4s; }
@@ -260,7 +260,7 @@
   .video-slot iframe { position:absolute; top: 0; left: 0; width:100%; height:100%; border:none; border-radius:10px; }
 
   /* WORKS */
-  .works { background:var(--white); }
+  .works { background:var(--white); scroll-margin-top: 50px; }
   .works-featured { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px; }
   .works-row { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:20px; }
   .works-bottom { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
@@ -285,7 +285,7 @@
   .work-video-slot img { margin-top: 10px;border-radius:10px; }
 
   /* CONTACT */
-  .contact { background:var(--ink); color:var(--cream); }
+  .contact { background:var(--ink); color:var(--cream); scroll-margin-top: 50px; }
   .contact .section-title { color:var(--cream); }
   .contact .section-title em { color:var(--rose); }
   .contact .section-line { background:linear-gradient(to right,var(--rose),transparent); opacity:.35; }
@@ -326,6 +326,7 @@
     .hero-portrait { width:180px; height:180px; margin-right: 0;}
     .hero-content { max-width:100%; }
     .hero-chips, .hero-meta { justify-content:center; }
+    .hero-sub { text-align: justify; padding: 0 15px; }
     .hero-btns { justify-content:center;}
     .btn-primary, .btn-secondary { padding:10px 22px; font-size:.77rem; }
     .glance-grid{grid-template-columns:1fr 1fr;}
@@ -421,14 +422,14 @@
     <div class="hero-content">
       <a href="#contact" class="hero-ofo" style="text-decoration: none;"><div class="ofo-dot"></div><span class="ofo-text">Open for Work</span></a>
       <h1 class="hero-name">Rae<em>Carmel</em></h1>
-      <p class="hero-sub">Hi, I’m Rae — a <strong>video editor</strong> specializing in engaging <strong>short-form</strong> & <strong>long-form</strong> content that captures the attention of viewers and keeps them watching. I help brands turn ideas into scroll-stopping videos for <strong>TikTok</strong> and <strong>YouTube</strong>. </p>
-      <p class="hero-sub">I am also a multimedia producer specializing as a <strong>Video Editor</strong>, <strong>Animator</strong>, and <strong>Scriptwriter</strong>, aiming to produce videos optimized for <strong>audience retention, reach, and engagement</strong>.</p>
       <div class="hero-meta">
         <div class="hero-meta-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           Laguna, Philippines
         </div>
       </div>
+      <p class="hero-sub">Hi, I’m Rae — a <strong>video editor</strong> specializing in engaging <strong>short-form</strong> & <strong>long-form</strong> content that captures the attention of viewers and keeps them watching. I help brands turn ideas into scroll-stopping videos for <strong>TikTok</strong> and <strong>YouTube</strong>. </p>
+      <p class="hero-sub">I am also a multimedia producer specializing as a <strong>Video Editor</strong>, <strong>Animator</strong>, and <strong>Scriptwriter</strong>, aiming to produce videos optimized for <strong>audience retention, reach, and engagement</strong>.</p>
       <div class="hero-chips">
         <span class="chip">Video Editing</span><span class="chip">Animation</span><span class="chip">Voice Acting</span>
         <span class="chip">Direction</span><span class="chip">Lyric Writing</span><span class="chip">Scriptwriting</span><span class="chip">Audio Mixing</span>
