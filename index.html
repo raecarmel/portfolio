@@ -126,7 +126,7 @@
   }
 
   /* HERO */
-  .hero { min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden; padding:120px 60px 80px; }
+  .hero { min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden; padding:80px 60px 80px; }
   .hero-bg { position:absolute; inset:0; background: radial-gradient(ellipse 60% 50% at 80% 30%,rgba(201,191,224,.3),transparent), radial-gradient(ellipse 50% 60% at 20% 70%,rgba(217,168,176,.25),transparent), var(--cream); }
   .hero-d1 { position:absolute; right:8%; top:15%; width:320px; height:320px; border-radius:50%; border:1px solid rgba(201,191,224,.4); animation:spin 40s linear infinite; }
   .hero-d2 { position:absolute; right:12%; top:19%; width:240px; height:240px; border-radius:50%; border:1px dashed rgba(217,168,176,.35); animation:spin 28s linear infinite reverse; }
@@ -178,7 +178,7 @@
   .glance-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:2px; background:rgba(255,255,255,.06); border-radius:24px; overflow:hidden; border:1px solid rgba(255,255,255,.08); }
   .glance-item { padding:38px 30px; background:rgba(255,255,255,.03); transition:background .3s; position:relative; }
   .glance-item:hover { background:rgba(255,255,255,.07); }
-  .glance-item::after { content:attr(data-label); position:absolute; top:15px; right:17px; font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(250,246,240,.18); }
+  .glance-item::after { padding-right: 15px; content:attr(data-label); position:absolute; top:15px; font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(250,246,240,.18); }
   .glance-num { font-family:'Bebas Neue',sans-serif; font-size:clamp(3.2rem,5vw,5.5rem); line-height:1; letter-spacing:.03em; background:linear-gradient(135deg,#FAF6F0 40%,var(--rose)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
   .glance-label { font-size:.8rem; letter-spacing:.11em; text-transform:uppercase; color:rgba(250,246,240,.4); margin-top:10px; line-height:1.55; }
   .glance-label strong { color:rgba(250,246,240,.72); display:block; font-weight:400; font-size:.9rem; letter-spacing:0; text-transform:none; margin-bottom:2px; }
