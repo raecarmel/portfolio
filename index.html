@@ -106,6 +106,7 @@
   .nav-cta:hover { background:var(--rose); transform:translateY(-1px); }
   .nav-cta::after { display:none !important; }
   .nav-right { display:flex; align-items:center; gap:14px; }
+  #navLinks { visibility: hidden; }
   .menu-toggle {
     display: none;
     flex-direction: column;
@@ -339,8 +340,7 @@
     .divider{margin:0 12px;}
     .footer-strip{padding:16px 20px;flex-direction:column;text-align:center;}
     .video-slots{grid-template-columns:1fr;}
-    .menu-toggle { display: flex; padding: 6px; color:var(--ink-light); }
-
+    #navLinks { visibility: visible; }
     .nav-links {
       position: fixed;
       top: 60px;
@@ -365,6 +365,7 @@
     .nav-links.active { transform: translateY(0); z-index: 999; visibility: visible; transition: transform 0.5s ease-in-out; }
     .nav-links .nav-cta { font-size:.75rem; width: 100%; padding: 15px 0; text-align: center; }
 
+    .menu-toggle { display: flex; padding: 6px; color:var(--ink-light); }
     .menu-toggle.active .bar { display: none; }
     .menu-toggle .x-icon { display: none; }
     .menu-toggle.active .x-icon { display: block; color: var(--ink); font-size: 1.2rem; line-height: 1; }
