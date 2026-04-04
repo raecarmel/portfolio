@@ -287,7 +287,7 @@
   .social-link-arrow { font-size:1rem; color:rgba(250,246,240,.2); transition:color .3s,transform .3s; }
   .social-link:hover .social-link-arrow { color:var(--rose); transform:translateX(3px); }
 
-  .footer-strip { background:var(--ink); color:rgba(250,246,240,.27); padding:20px 60px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,.06); font-size:.75rem; letter-spacing:.09em; flex-wrap:wrap; gap:8px; }
+  .footer-strip { background:var(--ink); color:rgba(250,246,240,.27); padding:20px 60px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,.06); font-size:.8rem; letter-spacing:.09em; flex-wrap:wrap; gap:8px; }
 
   .reveal { opacity:0; transform:translateY(26px); transition:opacity .7s,transform .7s; }
   .reveal.visible { opacity:1; transform:translateY(0); }
@@ -317,7 +317,6 @@
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
-<canvas id="petals" style="position:fixed;inset:0;pointer-events:none;z-index:0;"></canvas>
 
 <!-- NAV -->
 <nav>
@@ -330,7 +329,6 @@
       <a href="#contact" class="nav-cta">Contact ↗</a>
     </div>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
-      <!-- Sun icon (outline) — shows in light mode; rotates to moon feel in dark -->
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="4"/>
         <line x1="12" y1="2" x2="12" y2="4"/>
@@ -747,7 +745,6 @@
       <div class="work-roles"><span class="work-role">Director</span><span class="work-role">Actor</span><span class="work-role">Video Editor</span><span class="work-role">Scriptwriter</span></div>
       <p class="work-desc">Champion vlog narrating the creation of a mozzarella-stick slime replica through storytelling, with layered audio and effects to maximize engagement.</p>
       <div class="work-video-slot" style="aspect-ratio:9/16; width: 250px; height: auto; margin:0 auto;"><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F3767889293507192%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe></div>
-      <!-- <div class="work-video-slot" style="aspect-ratio:9/16; width: 250px; height: auto;"><iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F3767889293507192%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe></div> -->
     </div>
     <div class="work-card placeholder reveal reveal-delay-1">
       <div style="font-size:2.2rem;margin-bottom:11px;opacity:.4;">✦</div>
@@ -810,12 +807,6 @@
     el.addEventListener('mouseenter',()=>{cur.style.width='20px';cur.style.height='20px';ring.style.width='50px';ring.style.height='50px';ring.style.borderColor='var(--rose-deep)';});
     el.addEventListener('mouseleave',()=>{cur.style.width='12px';cur.style.height='12px';ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='var(--lavender-deep)';});
   });
-
-  const cv=document.getElementById('petals'),ctx=cv.getContext('2d');
-  function rsz(){cv.width=innerWidth;cv.height=innerHeight;} rsz(); addEventListener('resize',rsz);
-  const COLS=['#D9A8B0','#C9BFE0','#EDD5D9','#E4DEF2','#C9A96E'];
-  const pts=Array.from({length:20},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,s:3+Math.random()*6,sp:.35+Math.random()*.55,dr:(Math.random()-.5)*.4,r:Math.random()*Math.PI*2,rs:(Math.random()-.5)*.02,c:COLS[Math.random()*5|0],a:.14+Math.random()*.24}));
-  (function loop(){ctx.clearRect(0,0,cv.width,cv.height);pts.forEach(p=>{p.y+=p.sp;p.x+=p.dr;p.r+=p.rs;if(p.y>cv.height+10){p.y=-10;p.x=Math.random()*cv.width;}ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.globalAlpha=p.a;ctx.fillStyle=p.c;ctx.beginPath();ctx.ellipse(0,0,p.s,p.s*.55,0,0,Math.PI*2);ctx.fill();ctx.restore();});requestAnimationFrame(loop);})();
 
   const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.09,rootMargin:'0px 0px -20px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
