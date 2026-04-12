@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="logo.png">
+<title>Rae Carmel's Works</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF6F0; --cream-dark: #dfd7ca;
+    --lavender: #C9BFE0; --lavender-light: #E4DEF2; --lavender-deep: #9E8EC4;
+    --rose: #D9A8B0; --rose-light: #EDD5D9; --rose-deep: #B97A88;
+    --ink: #2C2635; --ink-light: #6B6277;
+    --gold: #C9A96E; --white: #FFFDFB;
+  }
+  html.dark {
+    --cream: #1A1625; --cream-dark: #251E33;
+    --lavender: #4A3F6B; --lavender-light: #2E2545; --lavender-deep: #B8A8E0;
+    --rose: #7A4F58; --rose-light: #3D2830; --rose-deep: #D4889A;
+    --ink: #EDE8F5; --ink-light: #A89BB8;
+    --gold: #D4AE6E; --white: #221B32;
+  }
+  html.dark nav { background:rgba(26,22,37,.95); border-bottom-color:rgba(74,63,107,.35); }
+  html.dark .nav-links { background:rgba(26,22,37,.97); border-bottom-color:rgba(74,63,107,.4); }
+  html.dark .work-role { background:rgba(255,255,255,.1); color:var(--ink); border-color:rgba(255,255,255,.15); }
+  html.dark .award-badge { background:rgba(212,174,110,.2); color:var(--gold); border-color:var(--gold); }
+  html.dark .filter-bar { background:rgba(26,22,37,.92); border-bottom-color:rgba(74,63,107,.35); }
+  html.dark .dropdown-trigger { background:var(--white); border-color:var(--cream-dark); color:var(--ink-light); }
+  html.dark .dropdown-trigger:hover, html.dark .dropdown-trigger.open { border-color:var(--lavender-deep); color:var(--ink); }
+  html.dark .dropdown-menu { background:var(--white); border-color:var(--cream-dark); box-shadow:0 8px 30px rgba(0,0,0,.4); }
+  html.dark .dropdown-option:hover { background:var(--cream-dark); }
+  html.dark .dropdown-option.selected { color:var(--rose-deep); }
+  html.dark .work-card { background:var(--white); border-color:var(--cream-dark); }
+  html.dark .work-video-slot { background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.08); }
+  html.dark .footer-strip { background:#120E1D; border-top-color:rgba(255,255,255,.05); }
+  html.dark .divider { opacity:.3; }
+  html.dark .cursor { mix-blend-mode:normal; }
+  html.dark .section-title { color:#FFF; }
+  html.dark .hero-bg { background:radial-gradient(ellipse 60% 50% at 80% 30%,rgba(74,63,107,.35),transparent),radial-gradient(ellipse 50% 60% at 20% 70%,rgba(122,79,88,.25),transparent),var(--cream); }
+  html.dark .clear-btn { border-color:var(--rose-deep); color:var(--rose-deep); }
+  html.dark .clear-btn:hover { background:var(--rose-deep); color:#fff; }
+  html.dark .filter-label { color:var(--ink-light); }
+
+  .theme-toggle { width:36px; height:36px; border-radius:50%; border:1.5px solid var(--lavender); background:transparent; color:var(--ink-light); display:flex; align-items:center; justify-content:center; cursor:none; transition:border-color .3s,color .3s,background .3s,transform .3s; flex-shrink:0; }
+  .theme-toggle:hover { border-color:var(--rose-deep); color:var(--rose-deep); background:rgba(185,122,136,.08); transform:rotate(20deg); }
+  .theme-toggle svg { width:16px; height:16px; transition:transform .5s ease; }
+  html.dark .theme-toggle svg { transform:rotate(180deg); }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; overflow-x:hidden; cursor:none; transition:background .4s,color .4s; }
+  .cursor { width:12px; height:12px; background:var(--rose-deep); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:width .3s,height .3s,background .3s; mix-blend-mode:multiply; }
+  .cursor-ring { width:36px; height:36px; border:1.5px solid var(--lavender-deep); border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:left .06s,top .06s,width .3s,height .3s,border-color .3s; opacity:.7; }
+
+  nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:16px 60px; display:flex; justify-content:space-between; align-items:center; background:rgba(250,246,240,0.75); backdrop-filter:blur(10px); border-bottom:1px solid rgba(201,191,224,.612); }
+  .nav-logo { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-style:italic; color:var(--ink); text-decoration:none; }
+  .nav-logo span { color:var(--rose-deep); }
+  .nav-links { display:flex; gap:28px; align-items:center; z-index:99; }
+  .nav-links a { text-decoration:none; font-size:0.78rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-light); transition:color .3s; position:relative; }
+  .nav-links a::after { content:''; position:absolute; bottom:-3px; left:0; width:0; height:1px; background:var(--rose-deep); transition:width .3s; }
+  .nav-links a:hover { color:var(--rose-deep); }
+  .nav-links a:hover::after { width:100%; }
+  .nav-cta { font-size:0.78rem; letter-spacing:.14em; text-transform:uppercase; padding:8px 20px; border-radius:20px; background:var(--rose-deep); color:#fff !important; text-decoration:none; transition:background .3s,transform .2s; }
+  .nav-cta:hover { background:var(--rose); transform:translateY(-1px); }
+  .nav-cta::after { display:none !important; }
+  .nav-right { display:flex; align-items:center; gap:14px; }
+  #navLinks { visibility:hidden; }
+  .menu-toggle { display:none; flex-direction:column; gap:6px; background:none; border:none; cursor:pointer; z-index:1000; color:var(--ink-light); }
+  .menu-toggle .bar { width:20px; height:2px; background-color:var(--ink); transition:0.3s; }
+
+  /* PAGE HERO */
+  .page-hero { padding:140px 60px 60px; position:relative; overflow:hidden; }
+  .hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 60% 50% at 80% 30%,rgba(201,191,224,.3),transparent),radial-gradient(ellipse 50% 60% at 20% 70%,rgba(217,168,176,.25),transparent),var(--cream); }
+  .page-hero-content { position:relative; z-index:1; max-width:700px; }
+  .page-hero-title { font-family:'Cormorant Garamond',serif; font-size:5.5rem; font-weight:300; line-height:.92; animation:fadeUp .8s both; }
+  .page-hero-title em { font-style:italic; color:var(--rose-deep); }
+  .page-hero-sub { margin-top:20px; font-size:1.05rem; line-height:1.8; color:var(--ink-light); animation:fadeUp .8s .15s both; }
+  .page-hero-sub strong { color:var(--lavender-deep); font-weight:500; }
+  .back-link { display:inline-flex; align-items:center; gap:7px; font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-light); text-decoration:none; transition:color .3s; margin-bottom:20px; }
+  .back-link:hover { color:var(--rose-deep); }
+  .back-link svg { width:13px; height:13px; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(22px);} to{opacity:1;transform:translateY(0);} }
+
+  /* FILTER BAR */
+  .filter-bar { position:sticky; top:62px; z-index:900; background:rgba(250,246,240,.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(201,191,224,.4); padding:14px 60px; }
+  .filter-inner { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  .filter-label { font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-light); margin-right:4px; white-space:nowrap; }
+
+  /* Dropdown */
+  .dropdown { position:relative; display:inline-block; }
+  .dropdown-trigger { display:inline-flex; align-items:center; gap:8px; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; padding:8px 16px; border-radius:20px; background:var(--white); border:1px solid var(--cream-dark); color:var(--ink-light); cursor:none; transition:all .2s; white-space:nowrap; user-select:none; }
+  .dropdown-trigger:hover { border-color:var(--lavender-deep); color:var(--ink); }
+  .dropdown-trigger.open { border-color:var(--rose-deep); color:var(--rose-deep); }
+  .dropdown-trigger.has-value { border-color:var(--rose-deep); background:rgba(185,122,136,.09); color:var(--rose-deep); }
+  .dropdown-trigger .chevron { width:11px; height:11px; transition:transform .2s; flex-shrink:0; }
+  .dropdown-trigger.open .chevron { transform:rotate(180deg); }
+  .dropdown-menu { position:absolute; top:calc(100% + 8px); left:0; min-width:170px; background:var(--white); border:1px solid var(--cream-dark); border-radius:14px; padding:6px; box-shadow:0 12px 40px rgba(0,0,0,.1); opacity:0; transform:translateY(-6px); pointer-events:none; transition:opacity .2s,transform .2s; z-index:9999; }
+  .dropdown-menu.open { opacity:1; transform:translateY(0); pointer-events:all; }
+  .dropdown-option { display:flex; align-items:center; gap:8px; padding:9px 12px; border-radius:9px; font-size:.8rem; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-light); cursor:none; transition:background .15s,color .15s; }
+  .dropdown-option:hover { background:var(--cream); color:var(--ink); }
+  .dropdown-option.selected { color:var(--rose-deep); font-weight:500; }
+  .dropdown-option .check { width:13px; height:13px; opacity:0; flex-shrink:0; }
+  .dropdown-option.selected .check { opacity:1; }
+
+  .clear-btn { font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; padding:7px 14px; border-radius:20px; background:transparent; border:1px solid var(--rose-deep); color:var(--rose-deep); cursor:none; transition:all .2s; display:none; align-items:center; gap:5px; }
+  .clear-btn.visible { display:inline-flex; }
+  .clear-btn:hover { background:var(--rose-deep); color:#fff; }
+
+  /* WORKS */
+  .works-section { padding:48px 60px 100px; }
+  .results-bar { display:flex; align-items:center; justify-content:space-between; margin-bottom:26px; flex-wrap:wrap; gap:10px; }
+  .results-count { font-size:.82rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-light); }
+  .results-count strong { color:var(--ink); font-weight:500; }
+  .works-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+
+  /* CARD — single clean style */
+  .work-card { background:var(--white); border:1px solid var(--cream-dark); border-radius:20px; padding:22px 22px 0; display:flex; flex-direction:column; position:relative; overflow:hidden; transition:transform .4s,box-shadow .4s; }
+  .work-card:hover { transform:translateY(-5px); box-shadow:0 20px 54px rgba(0,0,0,.07); }
+  .work-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(to right,var(--rose),var(--lavender)); transform:scaleX(0); transform-origin:left; transition:transform .4s; }
+  .work-card:hover::before { transform:scaleX(1); }
+
+  /* top tag row */
+  .card-top { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:14px; }
+  .work-tag { font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; padding:3px 9px; border-radius:8px; }
+  .tag-solo { background:rgba(201,191,224,.28); color:var(--lavender-deep); border:1px solid rgba(201,191,224,.5); }
+  .tag-team { background:rgba(217,168,176,.28); color:var(--rose-deep); border:1px solid rgba(217,168,176,.5); }
+  .tag-duo  { background:rgba(201,169,110,.2); color:#8a7040; border:1px solid rgba(201,169,110,.38); }
+  .tag-short { background:rgba(158,142,196,.18); color:var(--lavender-deep); border:1px solid rgba(158,142,196,.35); }
+  .tag-long  { background:rgba(185,122,136,.14); color:var(--rose-deep); border:1px solid rgba(185,122,136,.28); }
+  .tag-series { background:rgba(46,37,69,.1); color:var(--lavender-deep); border:1px solid rgba(46,37,69,.2); }
+  .award-badge { display:inline-flex; align-items:center; gap:4px; font-size:.68rem; letter-spacing:.09em; text-transform:uppercase; padding:3px 9px; border-radius:8px; background:rgba(253,207,123,.42); color:rgb(128,105,52); border:1px solid rgba(201,169,110,.32); }
+
+  .card-year { font-size:.73rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-light); margin-bottom:4px; }
+  .work-title { font-family:'Cormorant Garamond',serif; font-weight:600; font-size:1.7rem; color:var(--ink); margin-bottom:4px; line-height:1.2; }
+  .work-type { font-size:.78rem; letter-spacing:.13em; text-transform:uppercase; color:var(--rose-deep); margin-bottom:10px; }
+  .work-roles { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
+  .work-role { font-size:.78rem; padding:3px 9px; border-radius:8px; background:rgba(201,191,224,.18); color:var(--ink-light); border:1px solid rgba(201,191,224,.32); }
+  .work-desc { font-size:.87rem; line-height:1.72; color:var(--ink-light); margin-bottom:18px; }
+
+  /* VIDEO SLOT */
+  .work-video-slot { aspect-ratio:16/9; border-radius:0 0 14px 14px; background:var(--cream); border:1px solid var(--cream-dark); border-top:none; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; color:var(--ink-light); font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; overflow:hidden; position:relative; margin:0 -22px; margin-top:auto; }
+  .work-video-slot svg { width:22px; height:22px; opacity:.22; }
+  .work-video-slot iframe { position:absolute; inset:0; width:100%; height:100%; border:none; }
+
+  /* empty */
+  .empty-state { grid-column:1/-1; text-align:center; padding:80px 20px; display:none; }
+  .empty-state.visible { display:block; }
+  .empty-icon { font-size:2.8rem; margin-bottom:16px; opacity:.3; }
+  .empty-text { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-style:italic; color:var(--ink-light); }
+
+  .reveal { opacity:0; transform:translateY(26px); transition:opacity .7s,transform .7s; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  /* CONTACT */
+  .contact { background:var(--ink); color:var(--cream); padding:80px 60px; }
+  .contact .section-title { color:var(--cream); font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:400; line-height:1; }
+  .contact .section-title em { font-style:italic; color:var(--rose); }
+  .section-header { display:flex; align-items:baseline; gap:18px; margin-bottom:52px; }
+  .section-line { flex:1; height:1px; background:linear-gradient(to right,var(--rose),transparent); max-width:200px; opacity:.35; }
+  .contact-inner { display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:start; }
+  .contact-tagline { font-family:'Cormorant Garamond',serif; font-size:1.7rem; font-style:italic; color:rgba(250,246,240,.7); line-height:1.55; margin-bottom:20px; }
+  .contact-tagline strong { color:var(--rose); font-style:normal; }
+  .contact-note { font-size:1rem; color:rgba(250,246,240,.38); line-height:1.75; }
+  .social-links { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+  .social-link { display:flex; align-items:center; gap:14px; padding:15px 19px; border-radius:14px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); text-decoration:none; color:var(--cream); transition:all .3s; }
+  .social-link:hover { background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.15); transform:translateX(5px); }
+  .social-link-icon { width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .sl-email { background:linear-gradient(135deg,var(--lavender-deep),var(--rose-deep)); }
+  .sl-linkedin { background:#0A66C2; } .sl-tiktok { background:#000; } .sl-youtube { background:#FF0000; }
+  .social-link-icon svg { width:18px; height:18px; }
+  .social-link-info { flex:1; }
+  .social-link-name { font-size:1rem; font-weight:500; margin-bottom:2px; }
+  .social-link-handle { font-size:.9rem; color:rgba(250,246,240,.36); }
+  .social-link-arrow { font-size:1rem; color:rgba(250,246,240,.2); transition:color .3s,transform .3s; }
+  .social-link:hover .social-link-arrow { color:var(--rose); transform:translateX(3px); }
+  .footer-strip { background:var(--ink); color:rgba(250,246,240,.27); padding:20px 60px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,.06); font-size:.8rem; letter-spacing:.09em; flex-wrap:wrap; gap:8px; }
+  .divider { height:1px; background:linear-gradient(to right,transparent,var(--lavender),var(--rose-light),transparent); opacity:.55; margin:0 60px; }
+
+  @media(max-width:860px){
+    nav{padding:13px 20px;}
+    .page-hero{padding:100px 20px 40px;}
+    .page-hero-title{font-size:3.5rem;}
+    .filter-bar{padding:12px 20px;top:54px;}
+    .works-section{padding:30px 20px 70px;}
+    .works-grid{grid-template-columns:1fr;}
+    .contact{padding:50px 20px;}
+    .contact-inner{grid-template-columns:1fr;gap:28px;}
+    .social-links{grid-template-columns:1fr;}
+    .footer-strip{padding:16px 20px;flex-direction:column;text-align:center;}
+    .divider{margin:0 12px;}
+    #navLinks{visibility:visible;}
+    .nav-links{position:fixed;top:60px;left:0;right:0;width:100%;background:var(--cream);flex-direction:column;align-items:center;gap:25px;padding:20px 0;z-index:999;box-shadow:0 8px 30px rgba(0,0,0,.1);border-bottom:1px solid var(--cream-dark);transform:translateY(-110%);transition:transform .5s ease-in-out,visibility 0s linear .5s;visibility:hidden;}
+    .nav-links a{border-bottom:1px solid var(--cream-dark);font-size:.8rem;width:100%;padding:0 0 20px;text-align:center;}
+    .nav-links.active{transform:translateY(0);visibility:visible;transition:transform .5s ease-in-out;}
+    .nav-links .nav-cta{font-size:.75rem;width:100%;padding:15px 0;text-align:center;}
+    .menu-toggle{display:flex;padding:6px;}
+    .menu-toggle.active .bar{display:none;}
+    .menu-toggle .x-icon{display:none;}
+    .menu-toggle.active .x-icon{display:block;color:var(--ink);font-size:1.2rem;line-height:1;}
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Rae <span>Carmel</span></a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#channels">Channels</a>
+      <a href="index.html#works" style="color:var(--rose-deep);">Selected Works</a>
+      <a href="#contact" class="nav-cta">Contact ↗</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      <span class="x-icon">✕</span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-links" id="navLinks">
+  <a href="index.html#skills">Skills</a>
+  <a href="index.html#channels">Channels</a>
+  <a href="index.html#works">Selected Works</a>
+  <a href="#contact" class="nav-cta">Contact ↗</a>
+</div>
+
+<section class="page-hero">
+  <div class="hero-bg"></div>
+  <div class="page-hero-content">
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to Portfolio
+    </a>
+    <h1 class="page-hero-title">All <em>Works</em></h1>
+    <p class="page-hero-sub">A curated archive of school competition entries, personal projects, and collaborative productions — spanning <strong>video editing</strong>, <strong>direction</strong>, <strong>acting</strong>, and more.</p>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <span class="filter-label">Filter by</span>
+
+    <!-- Format -->
+    <div class="dropdown" id="dd-format">
+      <div class="dropdown-trigger" id="dt-format">
+        <span id="dl-format">Format</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="dropdown-menu" id="dm-format">
+        <div class="dropdown-option selected" data-value="">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>All Formats
+        </div>
+        <div class="dropdown-option" data-value="short">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Short-form
+        </div>
+        <div class="dropdown-option" data-value="long">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Long-form
+        </div>
+        <div class="dropdown-option" data-value="series">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Series
+        </div>
+      </div>
+    </div>
+
+    <!-- Type -->
+    <div class="dropdown" id="dd-type">
+      <div class="dropdown-trigger" id="dt-type">
+        <span id="dl-type">Type</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="dropdown-menu" id="dm-type">
+        <div class="dropdown-option selected" data-value="">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>All Types
+        </div>
+        <div class="dropdown-option" data-value="solo">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Solo
+        </div>
+        <div class="dropdown-option" data-value="team">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Team
+        </div>
+        <div class="dropdown-option" data-value="duo">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Duo
+        </div>
+      </div>
+    </div>
+
+    <!-- Category -->
+    <div class="dropdown" id="dd-category">
+      <div class="dropdown-trigger" id="dt-category">
+        <span id="dl-category">Category</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="dropdown-menu" id="dm-category">
+        <div class="dropdown-option selected" data-value="">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>All Categories
+        </div>
+        <div class="dropdown-option" data-value="acting">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Acting
+        </div>
+        <div class="dropdown-option" data-value="music">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Music Video
+        </div>
+        <div class="dropdown-option" data-value="drama">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Drama
+        </div>
+        <div class="dropdown-option" data-value="vlog">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Vlog
+        </div>
+        <div class="dropdown-option" data-value="podcast">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Podcast
+        </div>
+      </div>
+    </div>
+
+    <!-- Year -->
+    <div class="dropdown" id="dd-year">
+      <div class="dropdown-trigger" id="dt-year">
+        <span id="dl-year">Year</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="dropdown-menu" id="dm-year">
+        <div class="dropdown-option selected" data-value="">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>All Years
+        </div>
+        <div class="dropdown-option" data-value="2022">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>2022
+        </div>
+        <div class="dropdown-option" data-value="2024">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>2024
+        </div>
+        <div class="dropdown-option" data-value="2025">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>2025
+        </div>
+        <div class="dropdown-option" data-value="2026">
+          <svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>2026
+        </div>
+      </div>
+    </div>
+
+    <button class="clear-btn" id="clearBtn">✕ Clear</button>
+  </div>
+</div>
+
+<!-- WORKS GRID -->
+<section class="works-section">
+  <div class="results-bar">
+    <div class="results-count">Showing <strong id="resultCount">10</strong> works</div>
+  </div>
+  <div class="works-grid" id="worksGrid">
+
+    <!-- 1 -->
+    <div class="work-card reveal" data-tags="solo short acting 2022">
+      <div class="card-top">
+        <span class="work-tag tag-solo">Solo</span>
+        <span class="work-tag tag-short">Short-form</span>
+        <span class="award-badge">🏆 Champion</span>
+      </div>
+      <div class="card-year">2022</div>
+      <div class="work-title">Hermione Impression</div>
+      <div class="work-type">Acting &amp; Editing</div>
+      <div class="work-roles">
+        <span class="work-role">Actor</span>
+        <span class="work-role">Video Editor</span>
+      </div>
+      <p class="work-desc">Won champion in the school competition acting as Hermione Granger from Harry Potter. Showcases simple lighting, VFX, and SFX.</p>
+      <div class="work-video-slot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Video coming soon
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="work-card reveal" data-tags="team long drama 2024">
+      <div class="card-top">
+        <span class="work-tag tag-team">Team</span>
+        <span class="work-tag tag-long">Long-form</span>
+      </div>
+      <div class="card-year">2024</div>
+      <div class="work-title">Mini Drama for Library</div>
+      <div class="work-type">Drama Production</div>
+      <div class="work-roles">
+        <span class="work-role">Director</span>
+        <span class="work-role">Scriptwriter</span>
+        <span class="work-role">Video Editor</span>
+        <span class="work-role">Actor</span>
+      </div>
+      <p class="work-desc">Created a simple drama for the library, showcasing skills in direction and video composition.</p>
+      <div class="work-video-slot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Video coming soon
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="work-card reveal" data-tags="solo short acting 2024">
+      <div class="card-top">
+        <span class="work-tag tag-solo">Solo</span>
+        <span class="work-tag tag-short">Short-form</span>
+        <span class="award-badge">🏆 Champion</span>
+      </div>
+      <div class="card-year">2024</div>
+      <div class="work-title">Declamation Acting</div>
+      <div class="work-type">Acting &amp; Editing</div>
+      <div class="work-roles">
+        <span class="work-role">Actor</span>
+        <span class="work-role">Video Editor</span>
+      </div>
+      <p class="work-desc">Won champion for a video using sound effects and color grading to enhance a dramatic scene which I performed.</p>
+      <div class="work-video-slot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Video coming soon
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="work-card reveal" data-tags="solo long music 2024">
+      <div class="card-top">
+        <span class="work-tag tag-solo">Solo</span>
+        <span class="work-tag tag-long">Long-form</span>
+      </div>
+      <div class="card-year">2024</div>
+      <div class="work-title">Music Video</div>
+      <div class="work-type">Direction &amp; Performance</div>
+      <div class="work-roles">
+        <span class="work-role">Director</span>
+        <span class="work-role">Singer</span>
+        <span class="work-role">Actor</span>
+        <span class="work-role">Video Editor</span>
+      </div>
+      <p class="work-desc">Created a vintage Japanese-style music video to an English cover which I recorded and translated.</p>
+      <div class="work-video-slot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Video coming soon
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="work-card reveal" data-tags="team short music 2024">
+      <div class="card-top">
+        <span class="work-tag tag-team">Team</span>
+        <span class="work-tag tag-short">Short-form</span>
+        <span class="award-badge">🥈 1st Runner-up</span>
+      </div>
+      <div class="card-year">2024</div>
+      <div class="work-title">Jingle Music Video</div>
+      <div class="work-type">Music Production</div>
+      <div class="work-roles">
+        <span class="work-role">Director</span>
+        <span class="work-role">Main Vocalist</span>
+        <span class="work-role">Lyricist</span>
+        <span class="work-role">Audio Mixer</span>
+        <span class="work-role">Video Editor</span>
+      </div>
+      <p class="work-desc">Won 1st runner-up out of 25 teams. A lively advertisement jingle to "Just Monika" with vibrant mood, assisted non-singers to deliver satisfactory vocals.</p>
+      <div class="work-video-slot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Video coming soon
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="work-card reveal" data-tags="team short music 2025">
+      <div class="card-top">
+        <span class="work-tag tag-team">Team</span>
+        <span class="work-tag tag-short">Short-form</span>
+        <span class="award-badge">🥈 1st Runner-up</span>
+      </div>
+      <div class="card-year">2025</div>
+      <div class="work-title">Jingle Music Video</div>
+      <div class="work-type">Music Production</div>
+      <div class="work-roles">
+        <span class="work-role">Director</span>
+        <span class="work-role">Main Vocalist</span>
+        <span class="work-role">Lyricist</span>
+        <span class="work-role">Audio Mixer</span>
+        <span class="work-role">Video Editor</span>
+      </div>
+      <p class="work-desc">Won 1st runner-up out of 25 teams. A fast-paced advertisement jingle to "Family Madrigal" with complex scenes showcasing school services.</p>
+      <div class="work-video-slot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Video coming soon
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="work-card reveal" data-tags="team short music 2025">
+      <div class="card-top">
+        <span class="work-tag tag-team">Team</span>
+        <span class="work-tag tag-short">Short-form</span>
+      </div>
+      <div class="card-year">2025</div>
+      <div class="work-title">Dance Music Video</div>
+      <div class="work-type">Direction &amp; Editing</div>
+      <div class="work-roles">
+        <span class="work-role">Co-Director</span>
+        <span class="work-role">Dancer</span>
+        <span class="work-role">Video Editor</span>
+      </div>
+      <p class="work-desc">Added enhanced color grading, transitions, and camera motions to turn a dance video into a lively production.</p>
+      <div class="work-video-slot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Video coming soon
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="work-card reveal" data-tags="duo short podcast 2025">
+      <div class="card-top">
+        <span class="work-tag tag-duo">Duo</span>
+        <span class="work-tag tag-short">Short-form</span>
+        <span class="award-badge">🏆 1st / 2nd Place</span>
+      </div>
+      <div class="card-year">2025</div>
+      <div class="work-title">Library Podcast</div>
+      <div class="work-type">Hosting &amp; Editing</div>
+      <div class="work-roles">
+        <span class="work-role">Director</span>
+        <span class="work-role">Speaker</span>
+        <span class="work-role">Video Editor</span>
+        <span class="work-role">Scriptwriter</span>
+      </div>
+      <p class="work-desc">Talked about the perks of the school library with a friend, edited with CapCut and captions. Won 1st/2nd place.</p>
+      <div class="work-video-slot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Video coming soon
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="work-card reveal" data-tags="solo series short acting 2026">
+      <div class="card-top">
+        <span class="work-tag tag-solo">Solo</span>
+        <span class="work-tag tag-series">Series</span>
+        <span class="work-tag tag-short">Short-form</span>
+      </div>
+      <div class="card-year">2026</div>
+      <div class="work-title">Mythology Narration Series</div>
+      <div class="work-type">TikTok Series</div>
+      <div class="work-roles">
+        <span class="work-role">Director</span>
+        <span class="work-role">Actor</span>
+        <span class="work-role">Video Editor</span>
+        <span class="work-role">Scriptwriter</span>
+      </div>
+      <p class="work-desc">TikTok series showcasing Philippine mythology deities, relating each deity to a relatable modern perspective.</p>
+      <div class="work-video-slot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Video coming soon
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="work-card reveal" data-tags="solo short vlog 2026">
+      <div class="card-top">
+        <span class="work-tag tag-solo">Solo</span>
+        <span class="work-tag tag-short">Short-form</span>
+        <span class="award-badge">🏆 Champion</span>
+      </div>
+      <div class="card-year">2026</div>
+      <div class="work-title">Vlog / How-to-make Video</div>
+      <div class="work-type">Vlog &amp; Storytelling</div>
+      <div class="work-roles">
+        <span class="work-role">Director</span>
+        <span class="work-role">Actor</span>
+        <span class="work-role">Video Editor</span>
+        <span class="work-role">Scriptwriter</span>
+      </div>
+      <p class="work-desc">Won champion. Filmed a vlog on making slime through storytelling — a mozzarella stick replica with effects and audio to keep viewers engaged.</p>
+      <div class="work-video-slot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Video coming soon
+      </div>
+    </div>
+
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">✦</div>
+      <div class="empty-text">No works match your filters.<br>Try a different combination.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="contact" id="contact">
+  <div class="section-header">
+    <h2 class="section-title">Let's work <em>together</em>!</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-inner">
+    <div>
+      <p class="contact-tagline">I'm open to <strong>freelance projects, collaborations,</strong> and commissions.</p>
+      <p class="contact-note">Whether you need a video editor, animator, vocal talent, or a director who can handle any of the above — let's build something together.</p>
+    </div>
+    <div class="social-links">
+      <a href="https://mail.google.com/mail/u/0/?tf=cm&fs=1&to=raecarmel.ae@gmail.com&hl=en-US" class="social-link" target="_blank" rel="noopener">
+        <div class="social-link-icon sl-email"><svg viewBox="0 0 24 24" fill="white"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+        <div class="social-link-info"><div class="social-link-name">Email</div><div class="social-link-handle">raecarmel.ae@gmail.com</div></div>
+        <div class="social-link-arrow">→</div>
+      </a>
+      <a href="https://www.linkedin.com/in/rae-carmel-egusquiza/" class="social-link" target="_blank" rel="noopener">
+        <div class="social-link-icon sl-linkedin"><svg viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+        <div class="social-link-info"><div class="social-link-name">LinkedIn</div><div class="social-link-handle">rae-carmel-egusquiza</div></div>
+        <div class="social-link-arrow">→</div>
+      </a>
+      <a href="https://www.tiktok.com/@akiyamaflower" class="social-link" target="_blank" rel="noopener">
+        <div class="social-link-icon sl-tiktok"><svg viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg></div>
+        <div class="social-link-info"><div class="social-link-name">TikTok — akipella</div><div class="social-link-handle">@akiyamaflower</div></div>
+        <div class="social-link-arrow">→</div>
+      </a>
+      <a href="https://www.youtube.com/@akipella" class="social-link" target="_blank" rel="noopener">
+        <div class="social-link-icon sl-youtube"><svg viewBox="0 0 24 24" fill="white"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 002.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.52V8.48L15.5 12l-5.75 3.52z"/></svg></div>
+        <div class="social-link-info"><div class="social-link-name">YouTube — akipella</div><div class="social-link-handle">@akipella</div></div>
+        <div class="social-link-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="footer-strip">
+  <span>© 2026 Rae Carmel</span>
+  <span>Video Editor · Animator · Vocalist · Voice Actor · Director · Lyricist · Scriptwriter</span>
+  <span>Laguna, Philippines · Open to Work</span>
+</div>
+
+<script>
+  // CURSOR
+  const cur = document.getElementById('cursor'), ring = document.getElementById('cursorRing');
+  let mx=0,my=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+  setInterval(()=>{ring.style.left=mx+'px';ring.style.top=my+'px';},55);
+  document.querySelectorAll('a,button,.work-card,.dropdown-trigger,.dropdown-option').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cur.style.width='20px';cur.style.height='20px';ring.style.width='50px';ring.style.height='50px';ring.style.borderColor='var(--rose-deep)';});
+    el.addEventListener('mouseleave',()=>{cur.style.width='12px';cur.style.height='12px';ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='var(--lavender-deep)';});
+  });
+
+  // REVEAL
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.09,rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  // DARK MODE
+  const html=document.documentElement;
+  if(localStorage.getItem('theme')==='dark')html.classList.add('dark');
+  document.getElementById('themeToggle').addEventListener('click',()=>{html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light');});
+
+  // MOBILE MENU
+  const menuToggle=document.getElementById('menuToggle'),navLinksEl=document.getElementById('navLinks');
+  menuToggle.addEventListener('click',()=>{menuToggle.classList.toggle('active');navLinksEl.classList.toggle('active');});
+
+  // FILTER STATE
+  const activeFilters={format:'',type:'',category:'',year:''};
+  const labelDefaults={format:'Format',type:'Type',category:'Category',year:'Year'};
+  const groups=['format','type','category','year'];
+
+  // Wire up triggers
+  groups.forEach(g=>{
+    document.getElementById('dt-'+g).addEventListener('click',e=>{
+      e.stopPropagation();
+      const isOpen=document.getElementById('dm-'+g).classList.contains('open');
+      closeAllDropdowns();
+      if(!isOpen){
+        document.getElementById('dm-'+g).classList.add('open');
+        document.getElementById('dt-'+g).classList.add('open');
+      }
+    });
+    document.getElementById('dm-'+g).querySelectorAll('.dropdown-option').forEach(opt=>{
+      opt.addEventListener('click',e=>{
+        e.stopPropagation();
+        const val=opt.dataset.value;
+        activeFilters[g]=val;
+        // mark selected
+        document.getElementById('dm-'+g).querySelectorAll('.dropdown-option').forEach(o=>o.classList.remove('selected'));
+        opt.classList.add('selected');
+        // update label
+        const lbl=document.getElementById('dl-'+g);
+        const trig=document.getElementById('dt-'+g);
+        if(val){lbl.textContent=opt.textContent.trim();trig.classList.add('has-value');}
+        else{lbl.textContent=labelDefaults[g];trig.classList.remove('has-value');}
+        closeAllDropdowns();
+        applyFilters();
+      });
+    });
+  });
+
+  function closeAllDropdowns(){
+    groups.forEach(g=>{
+      document.getElementById('dm-'+g).classList.remove('open');
+      document.getElementById('dt-'+g).classList.remove('open');
+    });
+  }
+  document.addEventListener('click',closeAllDropdowns);
+
+  function applyFilters(){
+    const cards=document.querySelectorAll('.work-card[data-tags]');
+    let visible=0;
+    cards.forEach(card=>{
+      const tags=card.dataset.tags.split(' ');
+      const show=groups.every(g=>!activeFilters[g]||tags.includes(activeFilters[g]));
+      card.style.display=show?'':'none';
+      if(show)visible++;
+    });
+    document.getElementById('resultCount').textContent=visible;
+    document.getElementById('emptyState').classList.toggle('visible',visible===0);
+    const hasAny=groups.some(g=>activeFilters[g]!=='');
+    document.getElementById('clearBtn').classList.toggle('visible',hasAny);
+  }
+
+  document.getElementById('clearBtn').addEventListener('click',()=>{
+    groups.forEach(g=>{
+      activeFilters[g]='';
+      document.getElementById('dm-'+g).querySelectorAll('.dropdown-option').forEach(o=>o.classList.remove('selected'));
+      document.getElementById('dm-'+g).querySelector('[data-value=""]').classList.add('selected');
+      document.getElementById('dl-'+g).textContent=labelDefaults[g];
+      document.getElementById('dt-'+g).classList.remove('has-value');
+    });
+    applyFilters();
+  });
+</script>
+</body>
+</html>
