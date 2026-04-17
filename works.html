@@ -140,9 +140,52 @@
   .work-desc { font-size:.87rem; line-height:1.72; color:var(--ink-light); margin-bottom:18px; }
 
   /* VIDEO SLOT */
-  .work-video-slot { aspect-ratio:16/9; border-radius:0 0 14px 14px; background:var(--cream); border:1px solid var(--cream-dark); border-top:none; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; color:var(--ink-light); font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; overflow:hidden; position:relative; margin:0 -22px; margin-top:auto; }
-  .work-video-slot svg { width:22px; height:22px; opacity:.22; }
-  .work-video-slot iframe { position:absolute; inset:0; width:100%; height:100%; border:none; }
+.work-video-slot {
+  aspect-ratio: 16/9;
+  border-radius: 0 0 14px 14px;
+  background: var(--cream);
+  border: 1px solid var(--cream-dark);
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--ink-light);
+  font-size: .6rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  overflow: hidden;
+  position: relative;
+  margin: 0 -22px;
+  margin-top: auto;
+}
+
+/* Landscape iframes (default) */
+.work-video-slot iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Portrait iframes (TikTok & Vlog only) */
+.work-video-slot.portrait {
+  aspect-ratio: 16/9;
+}
+.work-video-slot.portrait iframe {
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: 100%;
+  aspect-ratio: 9/16;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+}
+
+.work-video-slot svg { width:22px; height:22px; opacity:.22; }
 
   /* empty */
   .empty-state { grid-column:1/-1; text-align:center; padding:80px 20px; display:none; }
@@ -364,113 +407,93 @@
   </div>
   <div class="works-grid" id="worksGrid">
 
-    <!-- 1 -->
-    <div class="work-card reveal" data-tags="solo short acting 2022">
+    <!-- 10 → now first -->
+    <div class="work-card reveal" data-tags="solo short vlog 2026">
       <div class="card-top">
         <span class="work-tag tag-solo">Solo</span>
         <span class="work-tag tag-short">Short-form</span>
         <span class="award-badge">🏆 Champion</span>
       </div>
-      <div class="card-year">2022</div>
-      <div class="work-title">Hermione Impression</div>
-      <div class="work-type">Acting &amp; Editing</div>
-      <div class="work-roles">
-        <span class="work-role">Actor</span>
-        <span class="work-role">Video Editor</span>
-      </div>
-      <p class="work-desc">Won champion in the school competition acting as Hermione Granger from Harry Potter. Showcases simple lighting, VFX, and SFX.</p>
-      <div class="work-video-slot">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <iframe src="https://drive.google.com/file/d/1Qo3AnjmsNzjrs6aNV5GTH0ljHs8s8XiO/preview" width="640" height="480"></iframe>
-      </div>
-    </div>
-
-    <!-- 2 -->
-    <div class="work-card reveal" data-tags="team long drama 2024">
-      <div class="card-top">
-        <span class="work-tag tag-team">Team</span>
-        <span class="work-tag tag-long">Long-form</span>
-      </div>
-      <div class="card-year">2024</div>
-      <div class="work-title">Mini Drama for Library</div>
-      <div class="work-type">Drama Production</div>
+      <div class="card-year">2026</div>
+      <div class="work-title">Vlog / How-to-make Video</div>
+      <div class="work-type">Vlog &amp; Storytelling</div>
       <div class="work-roles">
         <span class="work-role">Director</span>
+        <span class="work-role">Actor</span>
+        <span class="work-role">Video Editor</span>
         <span class="work-role">Scriptwriter</span>
-        <span class="work-role">Video Editor</span>
-        <span class="work-role">Actor</span>
       </div>
-      <p class="work-desc">Created a simple drama for the library, showcasing skills in direction and video composition.</p>
-      <div class="work-video-slot">
+      <p class="work-desc">Won champion. Filmed a vlog on making slime through storytelling — a mozzarella stick replica with effects and audio to keep viewers engaged.</p>
+      <div class="work-video-slot portrait">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <iframe src="https://drive.google.com/file/d/1iTGUNkDVdmmCWTcJTR_enk2F-yWco5X6/preview" width="640" height="480"></iframe>
+          <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F3767889293507192%2F&show_text=false&width=267&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
       </div>
     </div>
 
-    <!-- 3 -->
-    <div class="work-card reveal" data-tags="solo short acting 2024">
+    <!-- 9 -->
+    <div class="work-card reveal" data-tags="solo series short acting 2026">
       <div class="card-top">
         <span class="work-tag tag-solo">Solo</span>
+        <span class="work-tag tag-series">Series</span>
         <span class="work-tag tag-short">Short-form</span>
-        <span class="award-badge">🏆 Champion</span>
       </div>
-      <div class="card-year">2024</div>
-      <div class="work-title">Declamation Acting</div>
-      <div class="work-type">Acting &amp; Editing</div>
-      <div class="work-roles">
-        <span class="work-role">Actor</span>
-        <span class="work-role">Video Editor</span>
-      </div>
-      <p class="work-desc">Won champion for a video using sound effects and color grading to enhance a dramatic scene which I performed.</p>
-      <div class="work-video-slot">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/aYDvoOD3jos?si=93NWffLm6CHHQ9M7&origin=https://raecarmel.github.io/portfolio/" referrerpolicy="strict-origin-when-cross-origin" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <!-- 4 -->
-    <div class="work-card reveal" data-tags="solo long music 2024">
-      <div class="card-top">
-        <span class="work-tag tag-solo">Solo</span>
-        <span class="work-tag tag-long">Long-form</span>
-      </div>
-      <div class="card-year">2024</div>
-      <div class="work-title">Music Video</div>
-      <div class="work-type">Direction &amp; Performance</div>
+      <div class="card-year">2026</div>
+      <div class="work-title">Mythology Narration Series</div>
+      <div class="work-type">TikTok Series</div>
       <div class="work-roles">
         <span class="work-role">Director</span>
-        <span class="work-role">Singer</span>
         <span class="work-role">Actor</span>
         <span class="work-role">Video Editor</span>
+        <span class="work-role">Scriptwriter</span>
       </div>
-      <p class="work-desc">Created a vintage Japanese-style music video to an English cover which I recorded and translated.</p>
+      <p class="work-desc">TikTok series showcasing Philippine mythology deities, relating each deity to a relatable modern perspective.</p>
       <div class="work-video-slot">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <iframe src="https://drive.google.com/file/d/1p_HzVV_OEOdEJETWOmJmvFb94XatERUi/preview" allow="autoplay; autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe>
+          <iframe src="https://www.tiktok.com/player/v1/7590054288794078485?&music_info=0&description=0" allow="fullscreen" title="TikTok video player"></iframe>
       </div>
     </div>
 
-    <!-- 5 -->
-    <div class="work-card reveal" data-tags="team short music 2024">
+    <!-- 8 -->
+    <div class="work-card reveal" data-tags="duo short podcast 2025">
+      <div class="card-top">
+        <span class="work-tag tag-duo">Duo</span>
+        <span class="work-tag tag-short">Short-form</span>
+        <span class="award-badge">🏆 1st / 2nd Place</span>
+      </div>
+      <div class="card-year">2025</div>
+      <div class="work-title">Library Podcast</div>
+      <div class="work-type">Hosting &amp; Editing</div>
+      <div class="work-roles">
+        <span class="work-role">Director</span>
+        <span class="work-role">Speaker</span>
+        <span class="work-role">Video Editor</span>
+        <span class="work-role">Scriptwriter</span>
+      </div>
+      <p class="work-desc">Talked about the perks of the school library with a friend, edited with CapCut and captions. Won 1st/2nd place.</p>
+      <div class="work-video-slot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <iframe src="https://drive.google.com/file/d/1q5DzKF3EMWndGi22DDTt6Zn999d677S_/preview" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="work-card reveal" data-tags="team short music 2025">
       <div class="card-top">
         <span class="work-tag tag-team">Team</span>
         <span class="work-tag tag-short">Short-form</span>
-        <span class="award-badge">🥈 1st Runner-up</span>
       </div>
-      <div class="card-year">2024</div>
-      <div class="work-title">Jingle Music Video</div>
-      <div class="work-type">Music Production</div>
+      <div class="card-year">2025</div>
+      <div class="work-title">Dance Music Video</div>
+      <div class="work-type">Direction &amp; Editing</div>
       <div class="work-roles">
-        <span class="work-role">Director</span>
-        <span class="work-role">Main Vocalist</span>
-        <span class="work-role">Lyricist</span>
-        <span class="work-role">Audio Mixer</span>
+        <span class="work-role">Co-Director</span>
+        <span class="work-role">Dancer</span>
         <span class="work-role">Video Editor</span>
       </div>
-      <p class="work-desc">Won 1st runner-up out of 25 teams. A lively advertisement jingle to "Just Monika" with vibrant mood, assisted non-singers to deliver satisfactory vocals.</p>
+      <p class="work-desc">Added enhanced color grading, transitions, and camera motions to turn a dance video into a lively production.</p>
       <div class="work-video-slot">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FYESuphsl%2Fvideos%2F819661753368093%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+          <iframe src="https://drive.google.com/file/d/1CXH7CaVSCByB9AO8mMvQTEZp0vPUSDhw/preview" width="640" height="480"></iframe>
       </div>
     </div>
 
@@ -498,93 +521,113 @@
       </div>
     </div>
 
-    <!-- 7 -->
-    <div class="work-card reveal" data-tags="team short music 2025">
+    <!-- 5 -->
+    <div class="work-card reveal" data-tags="team short music 2024">
       <div class="card-top">
         <span class="work-tag tag-team">Team</span>
         <span class="work-tag tag-short">Short-form</span>
+        <span class="award-badge">🥈 1st Runner-up</span>
       </div>
-      <div class="card-year">2025</div>
-      <div class="work-title">Dance Music Video</div>
-      <div class="work-type">Direction &amp; Editing</div>
-      <div class="work-roles">
-        <span class="work-role">Co-Director</span>
-        <span class="work-role">Dancer</span>
-        <span class="work-role">Video Editor</span>
-      </div>
-      <p class="work-desc">Added enhanced color grading, transitions, and camera motions to turn a dance video into a lively production.</p>
-      <div class="work-video-slot">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <iframe src="https://drive.google.com/file/d/1CXH7CaVSCByB9AO8mMvQTEZp0vPUSDhw/preview" width="640" height="480"></iframe>
-      </div>
-    </div>
-
-    <!-- 8 -->
-    <div class="work-card reveal" data-tags="duo short podcast 2025">
-      <div class="card-top">
-        <span class="work-tag tag-duo">Duo</span>
-        <span class="work-tag tag-short">Short-form</span>
-        <span class="award-badge">🏆 1st / 2nd Place</span>
-      </div>
-      <div class="card-year">2025</div>
-      <div class="work-title">Library Podcast</div>
-      <div class="work-type">Hosting &amp; Editing</div>
+      <div class="card-year">2024</div>
+      <div class="work-title">Jingle Music Video</div>
+      <div class="work-type">Music Production</div>
       <div class="work-roles">
         <span class="work-role">Director</span>
-        <span class="work-role">Speaker</span>
+        <span class="work-role">Main Vocalist</span>
+        <span class="work-role">Lyricist</span>
+        <span class="work-role">Audio Mixer</span>
         <span class="work-role">Video Editor</span>
-        <span class="work-role">Scriptwriter</span>
       </div>
-      <p class="work-desc">Talked about the perks of the school library with a friend, edited with CapCut and captions. Won 1st/2nd place.</p>
+      <p class="work-desc">Won 1st runner-up out of 25 teams. A lively advertisement jingle to "Just Monika" with vibrant mood, assisted non-singers to deliver satisfactory vocals.</p>
       <div class="work-video-slot">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <iframe src="https://drive.google.com/file/d/1q5DzKF3EMWndGi22DDTt6Zn999d677S_/preview" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe>
+          <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FYESuphsl%2Fvideos%2F819661753368093%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
       </div>
     </div>
 
-    <!-- 9 -->
-    <div class="work-card reveal" data-tags="solo series short acting 2026">
+    <!-- 4 -->
+    <div class="work-card reveal" data-tags="solo long music 2024">
       <div class="card-top">
         <span class="work-tag tag-solo">Solo</span>
-        <span class="work-tag tag-series">Series</span>
-        <span class="work-tag tag-short">Short-form</span>
+        <span class="work-tag tag-long">Long-form</span>
       </div>
-      <div class="card-year">2026</div>
-      <div class="work-title">Mythology Narration Series</div>
-      <div class="work-type">TikTok Series</div>
+      <div class="card-year">2024</div>
+      <div class="work-title">Music Video</div>
+      <div class="work-type">Direction &amp; Performance</div>
       <div class="work-roles">
         <span class="work-role">Director</span>
+        <span class="work-role">Singer</span>
         <span class="work-role">Actor</span>
         <span class="work-role">Video Editor</span>
-        <span class="work-role">Scriptwriter</span>
       </div>
-      <p class="work-desc">TikTok series showcasing Philippine mythology deities, relating each deity to a relatable modern perspective.</p>
+      <p class="work-desc">Created a vintage Japanese-style music video to an English cover which I recorded and translated.</p>
       <div class="work-video-slot">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <iframe src="https://www.tiktok.com/player/v1/7590054288794078485?&music_info=0&description=0" allow="fullscreen" title="TikTok video player"></iframe>
+          <iframe src="https://drive.google.com/file/d/1p_HzVV_OEOdEJETWOmJmvFb94XatERUi/preview" allow="autoplay; autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe>
       </div>
     </div>
 
-    <!-- 10 -->
-    <div class="work-card reveal" data-tags="solo short vlog 2026">
+    <!-- 3 -->
+    <div class="work-card reveal" data-tags="solo short acting 2024">
       <div class="card-top">
         <span class="work-tag tag-solo">Solo</span>
         <span class="work-tag tag-short">Short-form</span>
         <span class="award-badge">🏆 Champion</span>
       </div>
-      <div class="card-year">2026</div>
-      <div class="work-title">Vlog / How-to-make Video</div>
-      <div class="work-type">Vlog &amp; Storytelling</div>
+      <div class="card-year">2024</div>
+      <div class="work-title">Declamation Acting</div>
+      <div class="work-type">Acting &amp; Editing</div>
       <div class="work-roles">
-        <span class="work-role">Director</span>
         <span class="work-role">Actor</span>
         <span class="work-role">Video Editor</span>
-        <span class="work-role">Scriptwriter</span>
       </div>
-      <p class="work-desc">Won champion. Filmed a vlog on making slime through storytelling — a mozzarella stick replica with effects and audio to keep viewers engaged.</p>
+      <p class="work-desc">Won champion for a video using sound effects and color grading to enhance a dramatic scene which I performed.</p>
       <div class="work-video-slot">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F3767889293507192%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/aYDvoOD3jos?si=93NWffLm6CHHQ9M7&origin=https://raecarmel.github.io/portfolio/" referrerpolicy="strict-origin-when-cross-origin" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="work-card reveal" data-tags="team long drama 2024">
+      <div class="card-top">
+        <span class="work-tag tag-team">Team</span>
+        <span class="work-tag tag-long">Long-form</span>
+      </div>
+      <div class="card-year">2024</div>
+      <div class="work-title">Mini Drama for Library</div>
+      <div class="work-type">Drama Production</div>
+      <div class="work-roles">
+        <span class="work-role">Director</span>
+        <span class="work-role">Scriptwriter</span>
+        <span class="work-role">Video Editor</span>
+        <span class="work-role">Actor</span>
+      </div>
+      <p class="work-desc">Created a simple drama for the library, showcasing skills in direction and video composition.</p>
+      <div class="work-video-slot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <iframe src="https://drive.google.com/file/d/1iTGUNkDVdmmCWTcJTR_enk2F-yWco5X6/preview" width="640" height="480"></iframe>
+      </div>
+    </div>
+
+    <!-- 1 → now last -->
+    <div class="work-card reveal" data-tags="solo short acting 2022">
+      <div class="card-top">
+        <span class="work-tag tag-solo">Solo</span>
+        <span class="work-tag tag-short">Short-form</span>
+        <span class="award-badge">🏆 Champion</span>
+      </div>
+      <div class="card-year">2022</div>
+      <div class="work-title">Hermione Impression</div>
+      <div class="work-type">Acting &amp; Editing</div>
+      <div class="work-roles">
+        <span class="work-role">Actor</span>
+        <span class="work-role">Video Editor</span>
+      </div>
+      <p class="work-desc">Won champion in the school competition acting as Hermione Granger from Harry Potter. Showcases simple lighting, VFX, and SFX.</p>
+      <div class="work-video-slot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <iframe src="https://drive.google.com/file/d/1Qo3AnjmsNzjrs6aNV5GTH0ljHs8s8XiO/preview" width="640" height="480"></iframe>
       </div>
     </div>
 
