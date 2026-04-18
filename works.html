@@ -42,6 +42,11 @@
   html.dark .clear-btn { border-color:var(--rose-deep); color:var(--rose-deep); }
   html.dark .clear-btn:hover { background:var(--rose-deep); color:#fff; }
   html.dark .filter-label { color:var(--ink-light); }
+  html.dark .contact { background: #120E1D; }
+  html.dark .social-link { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.08); }
+  html.dark .social-link:hover { background: rgba(255, 255, 255, 0.08); }
+  html.dark .social-link-name { color: #FFF; }
+  html.dark .tag-series { background:rgba(133, 117, 171, 0.175); border:1px solid rgba(98, 89, 120, 0.2); }
 
   .theme-toggle { width:36px; height:36px; border-radius:50%; border:1.5px solid var(--lavender); background:transparent; color:var(--ink-light); display:flex; align-items:center; justify-content:center; cursor:none; transition:border-color .3s,color .3s,background .3s,transform .3s; flex-shrink:0; }
   .theme-toggle:hover { border-color:var(--rose-deep); color:var(--rose-deep); background:rgba(185,122,136,.08); transform:rotate(20deg); }
@@ -134,7 +139,6 @@
 
   .card-year { font-size:.73rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-light); margin-bottom:4px; }
   .work-title { font-family:'Cormorant Garamond',serif; font-weight:600; font-size:1.7rem; color:var(--ink); margin-bottom:4px; line-height:1.2; }
-  .work-type { font-size:.78rem; letter-spacing:.13em; text-transform:uppercase; color:var(--rose-deep); margin-bottom:10px; }
   .work-roles { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:10px; }
   .work-role { font-size:.78rem; padding:3px 9px; border-radius:8px; background:rgba(201,191,224,.18); color:var(--ink-light); border:1px solid rgba(201,191,224,.32); }
   .work-desc { font-size:.87rem; line-height:1.72; color:var(--ink-light); margin-bottom:18px; }
@@ -256,7 +260,7 @@
     <div class="nav-links">
       <a href="index.html#skills">Skills</a>
       <a href="index.html#channels">Channels</a>
-      <a href="index.html#works" style="color:var(--rose-deep);">Selected Works</a>
+      <a href="index.html#works">Selected Works</a>
       <a href="#contact" class="nav-cta">Contact ↗</a>
     </div>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -416,7 +420,6 @@
       </div>
       <div class="card-year">2026</div>
       <div class="work-title">Vlog / How-to-make Video</div>
-      <div class="work-type">Vlog &amp; Storytelling</div>
       <div class="work-roles">
         <span class="work-role">Director</span>
         <span class="work-role">Actor</span>
@@ -439,7 +442,6 @@
       </div>
       <div class="card-year">2026</div>
       <div class="work-title">Mythology Narration Series</div>
-      <div class="work-type">TikTok Series</div>
       <div class="work-roles">
         <span class="work-role">Director</span>
         <span class="work-role">Actor</span>
@@ -462,7 +464,6 @@
       </div>
       <div class="card-year">2025</div>
       <div class="work-title">Library Podcast</div>
-      <div class="work-type">Hosting &amp; Editing</div>
       <div class="work-roles">
         <span class="work-role">Director</span>
         <span class="work-role">Speaker</span>
@@ -484,7 +485,6 @@
       </div>
       <div class="card-year">2025</div>
       <div class="work-title">Dance Music Video</div>
-      <div class="work-type">Direction &amp; Editing</div>
       <div class="work-roles">
         <span class="work-role">Co-Director</span>
         <span class="work-role">Dancer</span>
@@ -506,7 +506,6 @@
       </div>
       <div class="card-year">2025</div>
       <div class="work-title">Jingle Music Video</div>
-      <div class="work-type">Music Production</div>
       <div class="work-roles">
         <span class="work-role">Director</span>
         <span class="work-role">Main Vocalist</span>
@@ -530,7 +529,6 @@
       </div>
       <div class="card-year">2024</div>
       <div class="work-title">Jingle Music Video</div>
-      <div class="work-type">Music Production</div>
       <div class="work-roles">
         <span class="work-role">Director</span>
         <span class="work-role">Main Vocalist</span>
@@ -553,7 +551,6 @@
       </div>
       <div class="card-year">2024</div>
       <div class="work-title">Music Video</div>
-      <div class="work-type">Direction &amp; Performance</div>
       <div class="work-roles">
         <span class="work-role">Director</span>
         <span class="work-role">Singer</span>
@@ -576,7 +573,6 @@
       </div>
       <div class="card-year">2024</div>
       <div class="work-title">Declamation Acting</div>
-      <div class="work-type">Acting &amp; Editing</div>
       <div class="work-roles">
         <span class="work-role">Actor</span>
         <span class="work-role">Video Editor</span>
@@ -596,7 +592,6 @@
       </div>
       <div class="card-year">2024</div>
       <div class="work-title">Mini Drama for Library</div>
-      <div class="work-type">Drama Production</div>
       <div class="work-roles">
         <span class="work-role">Director</span>
         <span class="work-role">Scriptwriter</span>
@@ -619,7 +614,6 @@
       </div>
       <div class="card-year">2022</div>
       <div class="work-title">Hermione Impression</div>
-      <div class="work-type">Acting &amp; Editing</div>
       <div class="work-roles">
         <span class="work-role">Actor</span>
         <span class="work-role">Video Editor</span>
